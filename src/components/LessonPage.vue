@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import CodeBlock from './CodeBlock.vue'
-import SquirrelMascot from './SquirrelMascot.vue'
+import squirrelHero from '../assets/squirrel-chestnut-hero.png'
 import { knowledgeCategories, lessons } from '../data/lessons'
+import CodeBlock from './CodeBlock.vue'
 
 const route = useRoute()
 
@@ -22,10 +22,10 @@ const currentLesson = computed(() => {
   <div class="app-frame">
     <header class="top-nav">
       <RouterLink class="top-brand" to="/vue" aria-label="回到 Vue3 学习首页">
-        <SquirrelMascot />
+        <img class="brand-avatar" :src="squirrelHero" alt="小松鼠举着栗子" />
         <div>
-          <strong>举个栗子</strong>
-          <small>用真实案例学前端知识</small>
+          <strong>小松鼠举栗子</strong>
+          <small>每个知识点，举个真实栗子</small>
         </div>
       </RouterLink>
 
@@ -72,7 +72,9 @@ const currentLesson = computed(() => {
             <h1>{{ currentLesson.title }}</h1>
             <p>{{ currentLesson.summary }}</p>
           </div>
-          <SquirrelMascot />
+          <figure class="hero-figure">
+            <img :src="squirrelHero" alt="秋日森林里小松鼠举着一颗栗子" />
+          </figure>
         </header>
 
         <section class="lesson-section">

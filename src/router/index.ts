@@ -41,7 +41,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-  document.title = `${String(to.meta.title ?? 'Vue3 案例')} - 举个栗子`
+  document.title = `${String(to.meta.title ?? 'Vue3 案例')} - 小松鼠举栗子`
 })
 
 export default router
