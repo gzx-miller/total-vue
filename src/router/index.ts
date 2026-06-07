@@ -15,7 +15,7 @@ const lessonRoutes = lessons.map((lesson) => ({
 }))
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -31,7 +31,7 @@ const router = createRouter({
       name: 'K_12_DYNAMIC_MEMBER',
       component: LessonPage,
       meta: {
-        title: '🌰12 \u8def\u7531',
+        title: '\u{1F330}12 \u8def\u7531',
         knowledge: 'vue',
       },
     },
