@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 const showTip = ref(true)
-const goals = ref(['读完 K_16', '写一个过渡动画'])
+const goals = ref(['读完 🌰16', '写一个过渡动画'])
 </script>
 
 <template>

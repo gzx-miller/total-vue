@@ -16,6 +16,10 @@ const currentLesson = computed(() => {
 
   return lessons.find((lesson) => lesson.id === route.name) ?? lessons[0]
 })
+
+function formatLessonId(id: string) {
+  return id.replace('K_', '🌰')
+}
 </script>
 
 <template>
@@ -59,7 +63,7 @@ const currentLesson = computed(() => {
             class="lesson-link"
             :class="{ active: lesson.id === currentLesson.id }"
           >
-            <span>{{ lesson.id }}</span>
+            <span>{{ formatLessonId(lesson.id) }}</span>
             <strong>{{ lesson.navTitle }}</strong>
           </RouterLink>
         </nav>
@@ -68,7 +72,7 @@ const currentLesson = computed(() => {
       <main class="lesson-page">
         <header class="lesson-header">
           <div class="lesson-copy">
-            <p class="eyebrow">{{ currentLesson.id }} · {{ currentLesson.category }}</p>
+            <p class="eyebrow">{{ formatLessonId(currentLesson.id) }} · {{ currentLesson.category }}</p>
             <h1>{{ currentLesson.title }}</h1>
             <p>{{ currentLesson.summary }}</p>
           </div>

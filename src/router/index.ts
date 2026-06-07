@@ -31,7 +31,7 @@ const router = createRouter({
       name: 'K_12_DYNAMIC_MEMBER',
       component: LessonPage,
       meta: {
-        title: 'K_12 \u8def\u7531',
+        title: '🌰12 \u8def\u7531',
         knowledge: 'vue',
       },
     },
