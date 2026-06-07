@@ -72,9 +72,6 @@ const currentLesson = computed(() => {
             <h1>{{ currentLesson.title }}</h1>
             <p>{{ currentLesson.summary }}</p>
           </div>
-          <figure class="hero-figure">
-            <img :src="squirrelHero" alt="秋日森林里小松鼠举着一颗栗子" />
-          </figure>
         </header>
 
         <section class="lesson-section">
