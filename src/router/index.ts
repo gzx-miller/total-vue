@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LessonPage from '../components/LessonPage.vue'
 import { lessons } from '../data/lessons'
 
+const siteTitle = '\u5c0f\u677e\u9f20\u4e3e\u6817\u5b50'
+
 const lessonRoutes = lessons.map((lesson) => ({
   path: lesson.path,
   name: lesson.id,
@@ -29,7 +31,7 @@ const router = createRouter({
       name: 'K_12_DYNAMIC_MEMBER',
       component: LessonPage,
       meta: {
-        title: 'K_12 路由',
+        title: 'K_12 \u8def\u7531',
         knowledge: 'vue',
       },
     },
@@ -41,7 +43,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-  document.title = `${String(to.meta.title ?? 'Vue3 案例')} - 小松鼠举栗子`
+  document.title = `${String(to.meta.title ?? 'Vue3 \u6848\u4f8b')} - ${siteTitle}`
 })
 
 export default router
