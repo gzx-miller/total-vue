@@ -8,6 +8,7 @@ const lessonRoutes = lessons.map((lesson) => ({
   component: LessonPage,
   meta: {
     title: lesson.navTitle,
+    knowledge: 'vue',
   },
 }))
 
@@ -16,15 +17,20 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: '/vue',
+    },
+    {
+      path: '/vue',
       redirect: lessons[0].path,
     },
     ...lessonRoutes,
     {
-      path: '/k-12/routing/:memberId?',
+      path: '/vue/k-12/routing/:memberId?',
       name: 'K_12_DYNAMIC_MEMBER',
       component: LessonPage,
       meta: {
         title: 'K_12 路由',
+        knowledge: 'vue',
       },
     },
     {
@@ -35,7 +41,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-  document.title = `${String(to.meta.title ?? 'Vue3 案例')} - Total Vue`
+  document.title = `${String(to.meta.title ?? 'Vue3 案例')} - 举个栗子`
 })
 
 export default router
