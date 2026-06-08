@@ -302,6 +302,16 @@ li + li {
   margin: 0 0 12px;
 }
 
+.app-shell:not(.sidebar-expanded) .sidebar-toggle {
+  justify-self: stretch;
+  width: 100%;
+  min-height: 38px;
+  height: auto;
+  border-radius: 7px;
+  padding: 7px 4px;
+  place-items: center;
+}
+
 .app-shell:not(.sidebar-expanded) .lesson-link {
   display: grid;
   grid-template-columns: 1fr;
@@ -438,7 +448,7 @@ li + li {
 }
 
 .lesson-link.active {
-  box-shadow: inset 3px 0 0 var(--leaf-red);
+  box-shadow: none;
 }
 
 .lesson-page {
