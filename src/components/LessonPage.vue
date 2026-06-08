@@ -31,6 +31,18 @@ const isCategoryDrawerOpen = ref(true)
 
 const activeKnowledge = computed(() => String(route.meta.knowledge ?? 'vue'))
 
+const filteredLessons = computed(() => {
+  return lessons.filter((lesson) => {
+    if (activeKnowledge.value === 'vue') {
+      return lesson.path.startsWith('/vue')
+    }
+    if (activeKnowledge.value === 'element-plus') {
+      return lesson.path.startsWith('/element-plus')
+    }
+    return true
+  })
+})
+
 const currentLesson = computed(() => {
   if (route.name === 'K_12_DYNAMIC_MEMBER') {
     return lessons.find((lesson) => lesson.id === 'K_12') ?? lessons[0]
@@ -40,10 +52,10 @@ const currentLesson = computed(() => {
 })
 
 const nextLesson = computed(() => {
-  const currentIndex = lessons.findIndex((lesson) => lesson.id === currentLesson.value.id)
-  const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % lessons.length
+  const currentIndex = filteredLessons.value.findIndex((lesson) => lesson.id === currentLesson.value.id)
+  const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % filteredLessons.value.length
 
-  return lessons[nextIndex]
+  return filteredLessons.value[nextIndex]
 })
 
 function closeCategoryDrawerOnScroll() {
@@ -56,6 +68,9 @@ function getCategoryDetails(id: string) {
 }
 
 function formatLessonId(id: string) {
+  if (id.startsWith('E_')) {
+    return id.replace('E_', '🌰')
+  }
   return id.replace('K_', '🌰')
 }
 onMounted(() => {
@@ -122,7 +137,7 @@ onUnmounted(() => {
 
         <nav class="lesson-nav">
           <RouterLink
-            v-for="lesson in lessons"
+            v-for="lesson in filteredLessons"
             :key="lesson.id"
             :to="lesson.path"
             class="lesson-link"
