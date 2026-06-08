@@ -288,16 +288,18 @@ li + li {
   min-height: calc(100vh - 69px);
 }
 
+.app-shell:not(.sidebar-expanded) {
+  grid-template-columns: 64px minmax(0, 1fr);
+}
+
 .app-shell:not(.sidebar-expanded) .sidebar {
   padding: 16px 8px;
 }
 
 .app-shell:not(.sidebar-expanded) .sidebar-heading {
+  display: flex;
+  justify-content: center;
   margin: 0 0 12px;
-}
-
-.app-shell:not(.sidebar-expanded) .lesson-nav {
-  gap: 4px;
 }
 
 .app-shell:not(.sidebar-expanded) .lesson-link {
