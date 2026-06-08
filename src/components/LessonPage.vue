@@ -57,6 +57,10 @@ function hidePopover(id: string) {
 
 const activeKnowledge = computed(() => String(route.meta.knowledge ?? 'vue'))
 
+const activeCategoryName = computed(() => {
+  return knowledgeCategories.find((category) => category.id === activeKnowledge.value)?.name ?? activeKnowledge.value
+})
+
 const filteredLessons = computed(() => {
   return lessons.filter((lesson) => {
     if (activeKnowledge.value === 'vue') {
@@ -178,6 +182,9 @@ onUnmounted(() => {
             :aria-label="isSidebarTemporarilyExpanded ? '收起侧边栏' : '展开侧边栏'"
           >
             <span class="toggle-icon" aria-hidden="true"></span>
+            <strong v-if="isSidebarTemporarilyExpanded" class="sidebar-toggle-label">
+              {{ activeCategoryName }}
+            </strong>
           </button>
         </div>
 

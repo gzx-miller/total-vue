@@ -336,8 +336,13 @@ li + li {
   text-align: left;
 }
 
+.app-shell.sidebar-expanded .sidebar-heading {
+  margin: 0 0 12px;
+}
+
 .sidebar-toggle {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   align-items: center;
   justify-content: center;
   justify-self: start;
@@ -355,6 +360,19 @@ li + li {
   background: rgba(255, 218, 159, 0.55);
 }
 
+.sidebar-toggle.expanded {
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 4px;
+  justify-content: stretch;
+  justify-items: start;
+  width: 100%;
+  min-height: 34px;
+  height: auto;
+  border-radius: 7px;
+  padding: 7px 8px;
+  text-align: left;
+}
+
 .toggle-icon {
   display: block;
   width: 20px;
@@ -365,6 +383,15 @@ li + li {
 
 .sidebar-toggle.expanded .toggle-icon {
   mask-image: url('/sidebar-expand.svg');
+}
+
+.sidebar-toggle-label {
+  overflow: hidden;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sidebar-heading small {
@@ -771,10 +798,6 @@ li + li {
     display: flex;
     justify-content: center;
     margin: 0 0 8px;
-  }
-
-  .sidebar-toggle {
-    display: flex;
   }
 
   .lesson-nav {
