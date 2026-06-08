@@ -518,19 +518,41 @@ li + li {
   }
 
   .app-shell {
-    grid-template-columns: 1fr;
+    grid-template-columns: 64px minmax(0, 1fr);
   }
 
   .sidebar {
-    position: static;
-    height: auto;
-    max-height: none;
-    border-right: none;
-    border-bottom: 1px solid rgba(123, 53, 29, 0.18);
+    position: sticky;
+    top: 116px;
+    height: calc(100vh - 116px);
+    border-right: 1px solid rgba(123, 53, 29, 0.18);
+    border-bottom: none;
+    padding: 10px 8px;
+  }
+
+  .sidebar-heading {
+    display: none;
   }
 
   .lesson-nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-link {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    min-height: 38px;
+    padding: 7px 4px;
+    text-align: center;
+  }
+
+  .lesson-link span {
+    font-size: 12px;
+  }
+
+  .lesson-link strong {
+    display: none;
   }
 
   .lesson-page {
@@ -547,12 +569,19 @@ li + li {
 }
 
 @media (max-width: 520px) {
-  .lesson-nav {
-    grid-template-columns: 1fr;
+  .app-shell {
+    grid-template-columns: 58px minmax(0, 1fr);
   }
 
   .top-brand {
     min-width: 0;
   }
 
+  .sidebar {
+    padding: 8px 6px;
+  }
+
+  .lesson-link {
+    min-height: 36px;
+  }
 }

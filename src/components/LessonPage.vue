@@ -62,6 +62,8 @@ function formatLessonId(id: string) {
             :to="lesson.path"
             class="lesson-link"
             :class="{ active: lesson.id === currentLesson.id }"
+            :aria-label="`${formatLessonId(lesson.id)} ${lesson.navTitle}`"
+            :title="lesson.navTitle"
           >
             <span>{{ formatLessonId(lesson.id) }}</span>
             <strong>{{ lesson.navTitle }}</strong>
