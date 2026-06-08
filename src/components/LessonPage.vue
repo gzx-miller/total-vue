@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { ElButton } from 'element-plus'
-import { Menu, Close } from '@element-plus/icons-vue'
 import squirrelHero from '../assets/squirrel-chestnut-hero.png'
 import { knowledgeCategories, lessons } from '../data/lessons'
 import CodeBlock from './CodeBlock.vue'
@@ -32,6 +30,15 @@ const categoryDetails: Record<string, { intro: string; officialUrl: string }> = 
 const isCategoryDrawerOpen = ref(true)
 const isSidebarTemporarilyExpanded = ref(false)
 const lastKnownWidth = ref(window.innerWidth)
+const popoverVisible = ref<Record<string, boolean>>({})
+
+function showPopover(id: string) {
+  popoverVisible.value[id] = true
+}
+
+function hidePopover(id: string) {
+  popoverVisible.value[id] = false
+}
 
 const activeKnowledge = computed(() => String(route.meta.knowledge ?? 'vue'))
 
@@ -117,40 +124,47 @@ onUnmounted(() => {
       </RouterLink>
 
       <nav class="knowledge-tabs" aria-label="知识类别导航">
-        <ElPopover
+        <div
           v-for="item in knowledgeCategories"
           :key="item.id"
-          placement="bottom"
-          :width="300"
-          :offset="10"
-          trigger="hover"
-          :hide-after="0"
+          class="knowledge-tab-wrapper"
+          @mouseenter="showPopover(item.id)"
+          @mouseleave="hidePopover(item.id)"
         >
-          <template #reference>
-            <RouterLink
-              :to="item.status === 'ready' ? item.path : '/vue'"
-              class="knowledge-tab"
-              :class="{ active: item.id === activeKnowledge, planned: item.status === 'planned' }"
-              :aria-disabled="item.status === 'planned'"
-            >
-              <span>{{ item.name }}</span>
-              <small v-if="item.status === 'planned'">规划中</small>
-            </RouterLink>
-          </template>
-          <p class="popover-intro">{{ item.intro || getCategoryDetails(item.id).intro }}</p>
-        </ElPopover>
+          <RouterLink
+            :to="item.status === 'ready' ? item.path : '/vue'"
+            class="knowledge-tab"
+            :class="{ active: item.id === activeKnowledge, planned: item.status === 'planned' }"
+            :aria-disabled="item.status === 'planned'"
+          >
+            <span>{{ item.name }}</span>
+            <small v-if="item.status === 'planned'">规划中</small>
+          </RouterLink>
+          <Transition name="fade">
+            <div v-if="popoverVisible[item.id]" class="popover-panel">
+              <p class="popover-intro">{{ item.intro || getCategoryDetails(item.id).intro }}</p>
+            </div>
+          </Transition>
+        </div>
       </nav>
     </header>
 
     <div class="app-shell" :class="{ 'sidebar-expanded': isSidebarTemporarilyExpanded }">
       <aside class="sidebar" :class="{ 'sidebar-temporarily-expanded': isSidebarTemporarilyExpanded }" aria-label="Vue3 知识点导航">
         <div class="sidebar-heading">
-          <ElButton
+          <button
             class="sidebar-toggle"
-            :icon="isSidebarTemporarilyExpanded ? Close : Menu"
-            circle
+            :class="{ expanded: isSidebarTemporarilyExpanded }"
             @click="toggleSidebar"
-          />
+            :aria-label="isSidebarTemporarilyExpanded ? '收起侧边栏' : '展开侧边栏'"
+          >
+            <span class="toggle-icon">
+              <span class="toggle-line"></span>
+              <span class="toggle-line"></span>
+              <span class="toggle-line"></span>
+              <span class="toggle-line"></span>
+            </span>
+          </button>
         </div>
 
         <nav class="lesson-nav">

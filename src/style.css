@@ -218,6 +218,10 @@ li + li {
   gap: 8px;
 }
 
+.knowledge-tab-wrapper {
+  position: relative;
+}
+
 .knowledge-tab {
   display: inline-flex;
   align-items: center;
@@ -245,23 +249,25 @@ li + li {
   opacity: 0.78;
 }
 
+.popover-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 300px;
+  background: rgba(255, 250, 242, 0.98);
+  border: 1px solid rgba(123, 53, 29, 0.18);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 34px rgba(98, 42, 18, 0.15);
+  padding: 16px;
+}
+
 .popover-intro {
-  margin: 0 0 10px;
+  margin: 0;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.6;
-}
-
-.popover-link {
-  display: inline-block;
-  color: var(--accent-strong);
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.popover-link:hover {
-  text-decoration: underline;
 }
 
 .app-shell {
@@ -288,14 +294,56 @@ li + li {
 }
 
 .sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   justify-self: start;
+  width: 32px;
+  height: 32px;
   border: none;
   background: transparent;
   color: var(--accent);
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0;
 }
 
 .sidebar-toggle:hover {
   background: rgba(255, 218, 159, 0.55);
+}
+
+.toggle-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 18px;
+  height: 14px;
+}
+
+.toggle-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 1px;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-toggle.expanded .toggle-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.sidebar-toggle.expanded .toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.sidebar-toggle.expanded .toggle-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.sidebar-toggle.expanded .toggle-line:nth-child(4) {
+  opacity: 0;
 }
 
 .sidebar-heading small {
@@ -640,18 +688,13 @@ li + li {
 }
 
 .fade-enter-active,
-.fade-leave-active,
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.2s ease;
+.fade-leave-active {
+  transition: opacity 0.15s ease;
 }
 
 .fade-enter-from,
-.fade-leave-to,
-.list-enter-from,
-.list-leave-to {
+.fade-leave-to {
   opacity: 0;
-  transform: translateY(6px);
 }
 
 .modal-backdrop {
@@ -704,14 +747,12 @@ li + li {
   }
 
   .sidebar-heading {
-    display: none;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 8px;
   }
 
-  .sidebar.sidebar-temporarily-expanded .sidebar-heading {
-    display: grid;
-  }
-
-  .sidebar.sidebar-temporarily-expanded .sidebar-toggle {
+  .sidebar-toggle {
     display: flex;
   }
 
