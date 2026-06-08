@@ -288,6 +288,35 @@ li + li {
   min-height: calc(100vh - 69px);
 }
 
+.app-shell:not(.sidebar-expanded) .sidebar {
+  padding: 16px 8px;
+}
+
+.app-shell:not(.sidebar-expanded) .sidebar-heading {
+  margin: 0 0 12px;
+}
+
+.app-shell:not(.sidebar-expanded) .lesson-nav {
+  gap: 4px;
+}
+
+.app-shell:not(.sidebar-expanded) .lesson-link {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  min-height: 38px;
+  padding: 7px 4px;
+  text-align: center;
+}
+
+.app-shell:not(.sidebar-expanded) .lesson-link span {
+  font-size: 12px;
+}
+
+.app-shell:not(.sidebar-expanded) .lesson-link strong {
+  display: none;
+}
+
 .sidebar {
   position: sticky;
   top: 69px;
