@@ -31,8 +31,23 @@ const isCategoryDrawerOpen = ref(true)
 const isSidebarTemporarilyExpanded = ref(false)
 const lastKnownWidth = ref(window.innerWidth)
 const popoverVisible = ref<Record<string, boolean>>({})
+const popoverPlacement = ref<Record<string, 'start' | 'center' | 'end'>>({})
 
-function showPopover(id: string) {
+function showPopover(id: string, event: MouseEvent) {
+  const trigger = event.currentTarget as HTMLElement
+  const rect = trigger.getBoundingClientRect()
+  const panelWidth = Math.min(300, window.innerWidth - 24)
+  const panelLeft = rect.left + rect.width / 2 - panelWidth / 2
+  const panelRight = rect.left + rect.width / 2 + panelWidth / 2
+
+  if (panelLeft < 12) {
+    popoverPlacement.value[id] = 'start'
+  } else if (panelRight > window.innerWidth - 12) {
+    popoverPlacement.value[id] = 'end'
+  } else {
+    popoverPlacement.value[id] = 'center'
+  }
+
   popoverVisible.value[id] = true
 }
 
@@ -134,14 +149,18 @@ onUnmounted(() => {
             class="knowledge-tab"
             :class="{ active: item.id === activeKnowledge, planned: item.status === 'planned' }"
             :aria-disabled="item.status === 'planned'"
-            @mouseenter="showPopover(item.id)"
+            @mouseenter="showPopover(item.id, $event)"
             @mouseleave="hidePopover(item.id)"
           >
             <span>{{ item.name }}</span>
             <small v-if="item.status === 'planned'">规划中</small>
           </RouterLink>
           <Transition name="fade">
-            <div v-if="popoverVisible[item.id]" class="popover-panel">
+            <div
+              v-if="popoverVisible[item.id]"
+              class="popover-panel"
+              :class="`popover-panel-${popoverPlacement[item.id] ?? 'center'}`"
+            >
               <p class="popover-intro">{{ item.intro || getCategoryDetails(item.id).intro }}</p>
             </div>
           </Transition>

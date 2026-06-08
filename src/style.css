@@ -252,16 +252,27 @@ li + li {
 .popover-panel {
   position: absolute;
   top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 100;
-  width: 300px;
+  width: min(300px, calc(100vw - 24px));
   pointer-events: none;
   background: rgba(255, 250, 242, 0.98);
   border: 1px solid rgba(123, 53, 29, 0.18);
   border-radius: var(--radius);
   box-shadow: 0 14px 34px rgba(98, 42, 18, 0.15);
   padding: 16px;
+}
+
+.popover-panel-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.popover-panel-start {
+  left: 0;
+}
+
+.popover-panel-end {
+  right: 0;
 }
 
 .popover-intro {
@@ -315,48 +326,14 @@ li + li {
 
 .toggle-icon {
   display: block;
-  position: relative;
-  width: 24px;
-  height: 14px;
-  border: 2px solid currentColor;
-  border-radius: 3px;
-  transition:
-    width 0.2s ease,
-    color 0.2s ease;
-}
-
-.toggle-icon::before,
-.toggle-icon::after {
-  position: absolute;
+  width: 20px;
+  height: 20px;
   background: currentColor;
-  content: '';
-}
-
-.toggle-icon::before {
-  top: 0;
-  bottom: 0;
-  left: 8px;
-  width: 2px;
-}
-
-.toggle-icon::after {
-  top: 50%;
-  right: 0;
-  left: 8px;
-  height: 2px;
-  transform: translateY(-50%);
+  mask: url('/sidebar-fold.svg') center / contain no-repeat;
 }
 
 .sidebar-toggle.expanded .toggle-icon {
-  width: 28px;
-}
-
-.sidebar-toggle.expanded .toggle-icon::before {
-  left: 10px;
-}
-
-.sidebar-toggle.expanded .toggle-icon::after {
-  left: 10px;
+  mask-image: url('/sidebar-expand.svg');
 }
 
 .sidebar-heading small {
@@ -767,30 +744,6 @@ li + li {
 
   .sidebar-toggle {
     display: flex;
-  }
-
-  .sidebar-toggle .toggle-icon {
-    width: 18px;
-  }
-
-  .sidebar-toggle .toggle-icon::before {
-    left: 7px;
-  }
-
-  .sidebar-toggle .toggle-icon::after {
-    left: 7px;
-  }
-
-  .sidebar.sidebar-temporarily-expanded .sidebar-toggle .toggle-icon {
-    width: 28px;
-  }
-
-  .sidebar.sidebar-temporarily-expanded .sidebar-toggle .toggle-icon::before {
-    left: 10px;
-  }
-
-  .sidebar.sidebar-temporarily-expanded .sidebar-toggle .toggle-icon::after {
-    left: 10px;
   }
 
   .lesson-nav {
