@@ -14,9 +14,23 @@ const lessonRoutes = lessons.map((lesson) => ({
   },
 }))
 
+const normalizeLegacyTotalVuePath = (pathMatch: string | string[] | undefined) => {
+  const legacyPath = Array.isArray(pathMatch) ? pathMatch.join('/') : (pathMatch ?? '')
+
+  return legacyPath.startsWith('vue/') ? `/${legacyPath}` : '/vue'
+}
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/total-vue',
+      redirect: '/vue',
+    },
+    {
+      path: '/total-vue/:pathMatch(.*)*',
+      redirect: (to) => normalizeLegacyTotalVuePath(to.params.pathMatch as string | string[] | undefined),
+    },
     {
       path: '/',
       redirect: '/vue',

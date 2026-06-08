@@ -40,8 +40,6 @@ jobs:
 
       - name: Build
         run: pnpm build
-        env:
-          GITHUB_PAGES: 'true'
 
       - name: Add SPA fallback
         run: |
