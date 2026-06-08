@@ -287,9 +287,15 @@ li + li {
   text-align: left;
 }
 
-.sidebar-heading span {
-  font-size: 14px;
-  font-weight: 750;
+.sidebar-toggle {
+  justify-self: start;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+}
+
+.sidebar-toggle:hover {
+  background: rgba(255, 218, 159, 0.55);
 }
 
 .sidebar-heading small {
@@ -654,6 +660,10 @@ li + li {
     grid-template-columns: 64px minmax(0, 1fr);
   }
 
+  .app-shell.sidebar-expanded {
+    grid-template-columns: 230px minmax(0, 1fr);
+  }
+
   .sidebar {
     position: sticky;
     top: 116px;
@@ -663,11 +673,27 @@ li + li {
     padding: 10px 8px;
   }
 
+  .sidebar.sidebar-temporarily-expanded {
+    padding: 16px 10px;
+  }
+
   .sidebar-heading {
     display: none;
   }
 
+  .sidebar.sidebar-temporarily-expanded .sidebar-heading {
+    display: grid;
+  }
+
+  .sidebar.sidebar-temporarily-expanded .sidebar-toggle {
+    display: flex;
+  }
+
   .lesson-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar.sidebar-temporarily-expanded .lesson-nav {
     grid-template-columns: 1fr;
   }
 
@@ -680,12 +706,24 @@ li + li {
     text-align: center;
   }
 
+  .sidebar.sidebar-temporarily-expanded .lesson-link {
+    grid-template-columns: 38px minmax(0, 1fr);
+    place-items: initial;
+    align-items: center;
+    text-align: left;
+    padding: 7px 8px;
+  }
+
   .lesson-link span {
     font-size: 12px;
   }
 
   .lesson-link strong {
     display: none;
+  }
+
+  .sidebar.sidebar-temporarily-expanded .lesson-link strong {
+    display: block;
   }
 
   .lesson-page {

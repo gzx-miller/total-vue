@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+import { ElButton } from 'element-plus'
+import { Menu, Close } from '@element-plus/icons-vue'
 import squirrelHero from '../assets/squirrel-chestnut-hero.png'
 import { knowledgeCategories, lessons } from '../data/lessons'
 import CodeBlock from './CodeBlock.vue'
@@ -28,6 +30,8 @@ const categoryDetails: Record<string, { intro: string; officialUrl: string }> = 
 }
 
 const isCategoryDrawerOpen = ref(true)
+const isSidebarTemporarilyExpanded = ref(false)
+const lastKnownWidth = ref(window.innerWidth)
 
 const activeKnowledge = computed(() => String(route.meta.knowledge ?? 'vue'))
 
@@ -73,16 +77,31 @@ function formatLessonId(id: string) {
   }
   return id.replace('K_', '🌰')
 }
+
+function toggleSidebar() {
+  isSidebarTemporarilyExpanded.value = !isSidebarTemporarilyExpanded.value
+}
+
+function handleResize() {
+  const newWidth = window.innerWidth
+  if (newWidth !== lastKnownWidth.value) {
+    isSidebarTemporarilyExpanded.value = false
+  }
+  lastKnownWidth.value = newWidth
+}
+
 onMounted(() => {
   window.addEventListener('scroll', closeCategoryDrawerOnScroll, { passive: true })
   window.addEventListener('wheel', closeCategoryDrawerOnScroll, { passive: true })
   window.addEventListener('touchmove', closeCategoryDrawerOnScroll, { passive: true })
+  window.addEventListener('resize', handleResize)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', closeCategoryDrawerOnScroll)
   window.removeEventListener('wheel', closeCategoryDrawerOnScroll)
   window.removeEventListener('touchmove', closeCategoryDrawerOnScroll)
+  window.removeEventListener('resize', handleResize)
 })
 </script>
 
@@ -130,9 +149,15 @@ onUnmounted(() => {
       </nav>
     </header>
 
-    <div class="app-shell">
-      <aside class="sidebar" aria-label="Vue3 知识点导航">
+    <div class="app-shell" :class="{ 'sidebar-expanded': isSidebarTemporarilyExpanded }">
+      <aside class="sidebar" :class="{ 'sidebar-temporarily-expanded': isSidebarTemporarilyExpanded }" aria-label="Vue3 知识点导航">
         <div class="sidebar-heading">
+          <ElButton
+            class="sidebar-toggle"
+            :icon="isSidebarTemporarilyExpanded ? Close : Menu"
+            circle
+            @click="toggleSidebar"
+          />
         </div>
 
         <nav class="lesson-nav">
