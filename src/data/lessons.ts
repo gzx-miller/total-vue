@@ -47,6 +47,8 @@ export interface KnowledgeCategory {
   name: string
   path: string
   status: 'ready' | 'planned'
+  intro?: string
+  officialUrl?: string
 }
 
 export interface Lesson {
