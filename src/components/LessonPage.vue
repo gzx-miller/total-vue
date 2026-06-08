@@ -31,17 +31,6 @@ const isCategoryDrawerOpen = ref(true)
 
 const activeKnowledge = computed(() => String(route.meta.knowledge ?? 'vue'))
 
-const activeCategory = computed(() => {
-  const category = knowledgeCategories.find((item) => item.id === activeKnowledge.value) ?? knowledgeCategories[0]
-  const details = categoryDetails[category.id]
-
-  return {
-    ...category,
-    intro: category.intro ?? details.intro,
-    officialUrl: category.officialUrl ?? details.officialUrl,
-  }
-})
-
 const currentLesson = computed(() => {
   if (route.name === 'K_12_DYNAMIC_MEMBER') {
     return lessons.find((lesson) => lesson.id === 'K_12') ?? lessons[0]
@@ -59,6 +48,11 @@ const nextLesson = computed(() => {
 
 function closeCategoryDrawerOnScroll() {
   isCategoryDrawerOpen.value = false
+}
+
+function getCategoryDetails(id: string) {
+  const details = categoryDetails[id]
+  return details ?? { intro: '', officialUrl: '' }
 }
 
 function formatLessonId(id: string) {
@@ -84,30 +78,46 @@ onUnmounted(() => {
         <img class="brand-avatar" :src="squirrelHero" alt="小松鼠举着栗子" />
         <div>
           <strong>小松鼠举栗子</strong>
-          <small>每个知识点，举个真实栗子</small>
+          <span >gzx_miller@foxmail.com</span>
         </div>
       </RouterLink>
 
       <nav class="knowledge-tabs" aria-label="知识类别导航">
-        <RouterLink
+        <ElPopover
           v-for="item in knowledgeCategories"
           :key="item.id"
-          :to="item.status === 'ready' ? item.path : '/vue'"
-          class="knowledge-tab"
-          :class="{ active: item.id === activeKnowledge, planned: item.status === 'planned' }"
-          :aria-disabled="item.status === 'planned'"
+          placement="bottom"
+          :width="300"
+          :offset="10"
+          trigger="hover"
         >
-          <span>{{ item.name }}</span>
-          <small v-if="item.status === 'planned'">规划中</small>
-        </RouterLink>
+          <template #reference>
+            <RouterLink
+              :to="item.status === 'ready' ? item.path : '/vue'"
+              class="knowledge-tab"
+              :class="{ active: item.id === activeKnowledge, planned: item.status === 'planned' }"
+              :aria-disabled="item.status === 'planned'"
+            >
+              <span>{{ item.name }}</span>
+              <small v-if="item.status === 'planned'">规划中</small>
+            </RouterLink>
+          </template>
+          <p class="popover-intro">{{ item.intro || getCategoryDetails(item.id).intro }}</p>
+          <a
+            :href="item.officialUrl || getCategoryDetails(item.id).officialUrl"
+            target="_blank"
+            rel="noopener"
+            class="popover-link"
+          >
+            官网链接 →
+          </a>
+        </ElPopover>
       </nav>
     </header>
 
     <div class="app-shell">
       <aside class="sidebar" aria-label="Vue3 知识点导航">
         <div class="sidebar-heading">
-          <span>Vue3 学习顺序</span>
-          <small>{{ lessons.length }} 个栗子</small>
         </div>
 
         <nav class="lesson-nav">
@@ -127,30 +137,6 @@ onUnmounted(() => {
       </aside>
 
       <main class="lesson-page">
-        <aside
-          class="category-drawer"
-          :class="{ collapsed: !isCategoryDrawerOpen }"
-          aria-labelledby="category-drawer-title"
-        >
-          <button
-            class="category-drawer-toggle"
-            type="button"
-            :aria-expanded="isCategoryDrawerOpen"
-            aria-controls="category-drawer-panel"
-            @click="isCategoryDrawerOpen = !isCategoryDrawerOpen"
-          >
-            {{ isCategoryDrawerOpen ? '收起' : '展开' }}
-          </button>
-
-          <div id="category-drawer-panel" class="category-drawer-panel">
-            <h2 id="category-drawer-title">{{ activeCategory.name }}</h2>
-            <p>{{ activeCategory.intro }}</p>
-            <a :href="activeCategory.officialUrl" target="_blank" rel="noreferrer">
-              官网地址：{{ activeCategory.officialUrl }}
-            </a>
-          </div>
-        </aside>
-
         <header class="lesson-header">
           <div class="lesson-copy">
             <p class="eyebrow">{{ formatLessonId(currentLesson.id) }} · {{ currentLesson.category }}</p>
