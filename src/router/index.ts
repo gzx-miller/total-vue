@@ -4,13 +4,19 @@ import { lessons } from '../data/lessons'
 
 const siteTitle = '\u5c0f\u677e\u9f20\u4e3e\u6817\u5b50'
 
+function getKnowledgeFromPath(path: string): string {
+  if (path.startsWith('/vue/')) return 'vue'
+  if (path.startsWith('/element-plus/')) return 'element-plus'
+  return 'vue'
+}
+
 const lessonRoutes = lessons.map((lesson) => ({
   path: lesson.path,
   name: lesson.id,
   component: LessonPage,
   meta: {
     title: lesson.navTitle,
-    knowledge: 'vue',
+    knowledge: getKnowledgeFromPath(lesson.path),
   },
 }))
 
@@ -37,7 +43,11 @@ const router = createRouter({
     },
     {
       path: '/vue',
-      redirect: lessons[0].path,
+      redirect: lessons.find((l) => l.path.startsWith('/vue'))?.path ?? '/vue/k-1/app-entry',
+    },
+    {
+      path: '/element-plus',
+      redirect: lessons.find((l) => l.path.startsWith('/element-plus'))?.path ?? '/element-plus/e-1/button',
     },
     ...lessonRoutes,
     {
@@ -51,7 +61,7 @@ const router = createRouter({
     },
     {
       path: '/:pathMatch(.*)*',
-      redirect: lessons[0].path,
+      redirect: lessons.find((l) => l.path.startsWith('/vue'))?.path ?? '/vue/k-1/app-entry',
     },
   ],
 })
