@@ -124,6 +124,7 @@ onUnmounted(() => {
           :width="300"
           :offset="10"
           trigger="hover"
+          :hide-after="0"
         >
           <template #reference>
             <RouterLink
@@ -137,14 +138,6 @@ onUnmounted(() => {
             </RouterLink>
           </template>
           <p class="popover-intro">{{ item.intro || getCategoryDetails(item.id).intro }}</p>
-          <a
-            :href="item.officialUrl || getCategoryDetails(item.id).officialUrl"
-            target="_blank"
-            rel="noopener"
-            class="popover-link"
-          >
-            官网链接 →
-          </a>
         </ElPopover>
       </nav>
     </header>
@@ -218,10 +211,21 @@ onUnmounted(() => {
           </article>
         </section>
         <nav class="lesson-next" aria-label="下一章节">
-          <RouterLink class="next-lesson-link" :to="nextLesson.path">
-            <span>下一颗</span>
-            <strong>{{ formatLessonId(nextLesson.id) }} {{ nextLesson.navTitle }}</strong>
-          </RouterLink>
+          <div class="bottom-nav-row">
+            <a
+              v-if="getCategoryDetails(activeKnowledge).officialUrl"
+              :href="getCategoryDetails(activeKnowledge).officialUrl"
+              target="_blank"
+              rel="noopener"
+              class="official-link"
+            >
+              {{ getCategoryDetails(activeKnowledge).intro?.includes('Element') ? 'Element Plus 官网' : `${activeKnowledge.charAt(0).toUpperCase() + activeKnowledge.slice(1)} 官网` }} →
+            </a>
+            <RouterLink class="next-lesson-link" :to="nextLesson.path">
+              <span>下一颗</span>
+              <strong>{{ formatLessonId(nextLesson.id) }} {{ nextLesson.navTitle }}</strong>
+            </RouterLink>
+          </div>
         </nav>
       </main>
     </div>
