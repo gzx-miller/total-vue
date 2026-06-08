@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import squirrelHero from '../assets/squirrel-chestnut-hero.png'
 import { knowledgeCategories, lessons } from '../data/lessons'
@@ -30,6 +30,7 @@ const categoryDetails: Record<string, { intro: string; officialUrl: string }> = 
 const isCategoryDrawerOpen = ref(true)
 const isSidebarTemporarilyExpanded = ref(false)
 const lastKnownWidth = ref(window.innerWidth)
+const lessonPageRef = ref<HTMLElement | null>(null)
 const popoverVisible = ref<Record<string, boolean>>({})
 const popoverPlacement = ref<Record<string, 'start' | 'center' | 'end'>>({})
 
@@ -117,18 +118,20 @@ function handleResize() {
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', closeCategoryDrawerOnScroll, { passive: true })
-  window.addEventListener('wheel', closeCategoryDrawerOnScroll, { passive: true })
-  window.addEventListener('touchmove', closeCategoryDrawerOnScroll, { passive: true })
   window.addEventListener('resize', handleResize)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', closeCategoryDrawerOnScroll)
-  window.removeEventListener('wheel', closeCategoryDrawerOnScroll)
-  window.removeEventListener('touchmove', closeCategoryDrawerOnScroll)
   window.removeEventListener('resize', handleResize)
 })
+
+watch(
+  () => route.fullPath,
+  async () => {
+    await nextTick()
+    lessonPageRef.value?.scrollTo({ top: 0, left: 0 })
+  },
+)
 </script>
 
 <template>
@@ -204,7 +207,13 @@ onUnmounted(() => {
         </nav>
       </aside>
 
-      <main class="lesson-page">
+      <main
+        ref="lessonPageRef"
+        class="lesson-page"
+        @scroll.passive="closeCategoryDrawerOnScroll"
+        @wheel.passive="closeCategoryDrawerOnScroll"
+        @touchmove.passive="closeCategoryDrawerOnScroll"
+      >
         <header class="lesson-header">
           <div class="lesson-copy">
             <p class="eyebrow">{{ formatLessonId(currentLesson.id) }} · {{ currentLesson.category }}</p>
