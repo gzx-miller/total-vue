@@ -256,6 +256,7 @@ li + li {
   transform: translateX(-50%);
   z-index: 100;
   width: 300px;
+  pointer-events: none;
   background: rgba(255, 250, 242, 0.98);
   border: 1px solid rgba(123, 53, 29, 0.18);
   border-radius: var(--radius);
@@ -313,37 +314,49 @@ li + li {
 }
 
 .toggle-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  width: 18px;
-  height: 14px;
-}
-
-.toggle-line {
   display: block;
-  width: 100%;
+  position: relative;
+  width: 24px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  transition:
+    width 0.2s ease,
+    color 0.2s ease;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+  position: absolute;
+  background: currentColor;
+  content: '';
+}
+
+.toggle-icon::before {
+  top: 0;
+  bottom: 0;
+  left: 8px;
+  width: 2px;
+}
+
+.toggle-icon::after {
+  top: 50%;
+  right: 0;
+  left: 8px;
   height: 2px;
-  background-color: currentColor;
-  border-radius: 1px;
-  transition: transform 0.2s ease;
+  transform: translateY(-50%);
 }
 
-.sidebar-toggle.expanded .toggle-line:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+.sidebar-toggle.expanded .toggle-icon {
+  width: 28px;
 }
 
-.sidebar-toggle.expanded .toggle-line:nth-child(2) {
-  opacity: 0;
+.sidebar-toggle.expanded .toggle-icon::before {
+  left: 10px;
 }
 
-.sidebar-toggle.expanded .toggle-line:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-.sidebar-toggle.expanded .toggle-line:nth-child(4) {
-  opacity: 0;
+.sidebar-toggle.expanded .toggle-icon::after {
+  left: 10px;
 }
 
 .sidebar-heading small {
@@ -754,6 +767,30 @@ li + li {
 
   .sidebar-toggle {
     display: flex;
+  }
+
+  .sidebar-toggle .toggle-icon {
+    width: 18px;
+  }
+
+  .sidebar-toggle .toggle-icon::before {
+    left: 7px;
+  }
+
+  .sidebar-toggle .toggle-icon::after {
+    left: 7px;
+  }
+
+  .sidebar.sidebar-temporarily-expanded .sidebar-toggle .toggle-icon {
+    width: 28px;
+  }
+
+  .sidebar.sidebar-temporarily-expanded .sidebar-toggle .toggle-icon::before {
+    left: 10px;
+  }
+
+  .sidebar.sidebar-temporarily-expanded .sidebar-toggle .toggle-icon::after {
+    left: 10px;
   }
 
   .lesson-nav {

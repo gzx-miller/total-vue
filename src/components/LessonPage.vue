@@ -128,14 +128,14 @@ onUnmounted(() => {
           v-for="item in knowledgeCategories"
           :key="item.id"
           class="knowledge-tab-wrapper"
-          @mouseenter="showPopover(item.id)"
-          @mouseleave="hidePopover(item.id)"
         >
           <RouterLink
             :to="item.status === 'ready' ? item.path : '/vue'"
             class="knowledge-tab"
             :class="{ active: item.id === activeKnowledge, planned: item.status === 'planned' }"
             :aria-disabled="item.status === 'planned'"
+            @mouseenter="showPopover(item.id)"
+            @mouseleave="hidePopover(item.id)"
           >
             <span>{{ item.name }}</span>
             <small v-if="item.status === 'planned'">规划中</small>
@@ -158,12 +158,7 @@ onUnmounted(() => {
             @click="toggleSidebar"
             :aria-label="isSidebarTemporarilyExpanded ? '收起侧边栏' : '展开侧边栏'"
           >
-            <span class="toggle-icon">
-              <span class="toggle-line"></span>
-              <span class="toggle-line"></span>
-              <span class="toggle-line"></span>
-              <span class="toggle-line"></span>
-            </span>
+            <span class="toggle-icon" aria-hidden="true"></span>
           </button>
         </div>
 
