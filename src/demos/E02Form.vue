@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { ElForm, ElFormItem, ElInput, ElSelect, ElOption, ElButton, ElCheckbox, ElDatePicker } from 'element-plus'
+import { ElForm, ElFormItem, ElInput, ElSelect, ElOption, ElButton, ElCheckbox, ElCheckboxGroup, ElDatePicker, ElMessage } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
 
 const formRef = ref<FormInstance>()
@@ -43,8 +43,6 @@ function submitForm() {
 function resetForm() {
   formRef.value?.resetFields()
 }
-
-import { ElMessage } from 'element-plus'
 </script>
 
 <template>

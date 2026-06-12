@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElButton, ElButtonGroup } from 'element-plus'
+import { ElButton, ElButtonGroup, ElIcon } from 'element-plus'
+import { Search, Edit, Check, Message, Delete, Star, ArrowLeft, ArrowRight } from '@element-plus/icons-vue'
 
 const loading = ref(false)
 
@@ -64,10 +65,3 @@ function handleLoadingClick() {
     </ElButtonGroup>
   </div>
 </template>
-
-<script lang="ts">
-import { Search, Edit, Check, Message, Delete, Star, ArrowLeft, ArrowRight } from '@element-plus/icons-vue'
-export default {
-  components: { Search, Edit, Check, Message, Delete, Star, ArrowLeft, ArrowRight }
-}
-</script>

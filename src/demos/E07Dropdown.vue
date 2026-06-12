@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { ElDropdown, ElDropdownMenu, ElDropdownItem, ElButton, ElMessage, ElIcon } from 'element-plus'
-import { Edit, Share, Star } from '@element-plus/icons-vue'
+import { Edit, Share, Star, ArrowDown, Check } from '@element-plus/icons-vue'
 
 const activeCourse = ref('Vue3 组合式 API 入门')
 
@@ -90,13 +90,6 @@ function selectCourse(courseName: string) {
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { ArrowDown, Check } from '@element-plus/icons-vue'
-export default {
-  components: { ArrowDown, Check }
-}
-</script>
 
 <style scoped>
 .course-selector {

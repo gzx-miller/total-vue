@@ -41,6 +41,20 @@ import K20Performance from '../demos/K20Performance.vue'
 import K20Code from '../demos/K20Performance.vue?raw'
 import K21TestingMaintainability from '../demos/K21TestingMaintainability.vue'
 import K21Code from '../demos/K21TestingMaintainability.vue?raw'
+import K22CustomVModel from '../demos/K22CustomVModel.vue'
+import K22Code from '../demos/K22CustomVModel.vue?raw'
+import K23ErrorHandling from '../demos/K23ErrorHandling.vue'
+import K23Code from '../demos/K23ErrorHandling.vue?raw'
+import K24PluginDev from '../demos/K24PluginDev.vue'
+import K24Code from '../demos/K24PluginDev.vue?raw'
+import K25ShallowReactivity from '../demos/K25ShallowReactivity.vue'
+import K25Code from '../demos/K25ShallowReactivity.vue?raw'
+import K26EffectScope from '../demos/K26EffectScope.vue'
+import K26Code from '../demos/K26EffectScope.vue?raw'
+import K27AttributeForwarding from '../demos/K27AttributeForwarding.vue'
+import K27Code from '../demos/K27AttributeForwarding.vue?raw'
+import K28ComponentExpose from '../demos/K28ComponentExpose.vue'
+import K28Code from '../demos/K28ComponentExpose.vue?raw'
 import E01Button from '../demos/E01Button.vue'
 import E01Code from '../demos/E01Button.vue?raw'
 import E02Form from '../demos/E02Form.vue'
@@ -57,6 +71,66 @@ import E07Dropdown from '../demos/E07Dropdown.vue'
 import E07Code from '../demos/E07Dropdown.vue?raw'
 import E08Tabs from '../demos/E08Tabs.vue'
 import E08Code from '../demos/E08Tabs.vue?raw'
+import E09Pagination from '../demos/E09Pagination.vue'
+import E09Code from '../demos/E09Pagination.vue?raw'
+import E10Upload from '../demos/E10Upload.vue'
+import E10Code from '../demos/E10Upload.vue?raw'
+import E11Cascader from '../demos/E11Cascader.vue'
+import E11Code from '../demos/E11Cascader.vue?raw'
+import E12Tooltip from '../demos/E12Tooltip.vue'
+import E12Code from '../demos/E12Tooltip.vue?raw'
+import E13DatePicker from '../demos/E13DatePicker.vue'
+import E13Code from '../demos/E13DatePicker.vue?raw'
+import E14Tree from '../demos/E14Tree.vue'
+import E14Code from '../demos/E14Tree.vue?raw'
+import E15Drawer from '../demos/E15Drawer.vue'
+import E15Code from '../demos/E15Drawer.vue?raw'
+import E16Steps from '../demos/E16Steps.vue'
+import E16Code from '../demos/E16Steps.vue?raw'
+import R01ComponentProps from '../demos/R01ComponentProps.vue'
+import R01Code from '../demos/react/R01ComponentProps.js?raw'
+import R02StateUpdates from '../demos/R02StateUpdates.vue'
+import R02Code from '../demos/react/R02StateUpdates.js?raw'
+import R03ListsKeys from '../demos/R03ListsKeys.vue'
+import R03Code from '../demos/react/R03ListsKeys.js?raw'
+import R04ControlledForm from '../demos/R04ControlledForm.vue'
+import R04Code from '../demos/react/R04ControlledForm.js?raw'
+import R05EffectSync from '../demos/R05EffectSync.vue'
+import R05Code from '../demos/react/R05EffectSync.js?raw'
+import R06Reducer from '../demos/R06Reducer.vue'
+import R06Code from '../demos/react/R06Reducer.js?raw'
+import R07Context from '../demos/R07Context.vue'
+import R07Code from '../demos/react/R07Context.js?raw'
+import R08CustomHook from '../demos/R08CustomHook.vue'
+import R08Code from '../demos/react/R08CustomHook.js?raw'
+import L01LLMCall from '../demos/L01LLMCall.vue'
+import L01Code from '../demos/L01LLMCall.vue?raw'
+import L02PromptTemplate from '../demos/L02PromptTemplate.vue'
+import L02Code from '../demos/L02PromptTemplate.vue?raw'
+import L03OutputParser from '../demos/L03OutputParser.vue'
+import L03Code from '../demos/L03OutputParser.vue?raw'
+import L04LCEL from '../demos/L04LCEL.vue'
+import L04Code from '../demos/L04LCEL.vue?raw'
+import L05Chains from '../demos/L05Chains.vue'
+import L05Code from '../demos/L05Chains.vue?raw'
+import L06DocSplitter from '../demos/L06DocSplitter.vue'
+import L06Code from '../demos/L06DocSplitter.vue?raw'
+import L07VectorRetrieval from '../demos/L07VectorRetrieval.vue'
+import L07Code from '../demos/L07VectorRetrieval.vue?raw'
+import L08Agent from '../demos/L08Agent.vue'
+import L08Code from '../demos/L08Agent.vue?raw'
+import L09Tools from '../demos/L09Tools.vue'
+import L09Code from '../demos/L09Tools.vue?raw'
+import L10Memory from '../demos/L10Memory.vue'
+import L10Code from '../demos/L10Memory.vue?raw'
+import L11Callbacks from '../demos/L11Callbacks.vue'
+import L11Code from '../demos/L11Callbacks.vue?raw'
+import L12QABot from '../demos/L12QABot.vue'
+import L12Code from '../demos/L12QABot.vue?raw'
+import L13Streaming from '../demos/L13Streaming.vue'
+import L13Code from '../demos/L13Streaming.vue?raw'
+import L14Evaluation from '../demos/L14Evaluation.vue'
+import L14Code from '../demos/L14Evaluation.vue?raw'
 
 export interface KnowledgeCategory {
   id: string
@@ -87,15 +161,16 @@ export const knowledgeCategories: KnowledgeCategory[] = [
   { id: 'vue', name: 'Vue3', path: '/vue', status: 'ready' },
   { id: 'element-plus', name: 'Element Plus', path: '/element-plus', status: 'ready', intro: 'Element Plus 是基于 Vue 3 的组件库，提供丰富的企业级 UI 组件，覆盖表格、表单、弹窗、导航等常见场景。', officialUrl: 'https://element-plus.org/' },
   { id: 'typescript', name: 'TypeScript', path: '/typescript', status: 'planned' },
-  { id: 'react', name: 'React', path: '/react', status: 'planned' },
+  { id: 'react', name: 'React', path: '/react', status: 'ready', intro: 'React 以组件和声明式渲染组织用户界面。本分类基于 React 19.2，通过浏览器 ES Module 直接引用 React，不向当前 Vue3 工程安装 React 依赖。', officialUrl: 'https://react.dev/' },
   { id: 'engineering', name: '工程化', path: '/engineering', status: 'planned' },
+  { id: 'langchain', name: 'LangChain', path: '/langchain', status: 'ready', intro: 'LangChain.js 是构建 LLM 应用的开源框架，提供模型调用、提示模板、链式调用、RAG 检索增强生成等核心能力，帮助开发者快速搭建智能应用。', officialUrl: 'https://js.langchain.com/' },
 ]
 
 export const lessons: Lesson[] = [
   {
     id: 'K_1',
     title: '应用创建、入口挂载、SFC 基础结构',
-    navTitle: '应用入口',
+    navTitle: '应用',
     category: '工程起点',
     path: '/vue/k-1/app-entry',
     summary: '从入口文件理解 Vue 应用实例、插件注册、根组件挂载和单文件组件的基本组成。',
@@ -151,7 +226,7 @@ export const lessons: Lesson[] = [
     code: K03Code,
     language: 'vue',
     principle:
-      'ref 把单个值包装成响应式引用，reactive 把对象转换成响应式代理。模板读取这些状态时会自动追踪依赖，状态变化后依赖它的视图会重新渲染。',
+      'ref 把单个值包装成响应式引用，reactive 把对象转换成响应式代理。模板读取这些状态时会自动追踪依赖，状态变化后依赖它的视图会重新渲染。reactive 的局限：不能替换整个对象（会丢失响应式），不能用于原始类型，解构会丢失响应式需用 toRefs。',
     flow: [
       '用 ref 保存章节数量，用 reactive 保存用户资料这类对象状态。',
       '点击按钮时修改 count.value 和 profile.level。',
@@ -161,6 +236,7 @@ export const lessons: Lesson[] = [
       'script 中读取或修改 ref 要使用 .value，模板中会自动解包。',
       'reactive 对象不要随意解构；如果需要解构并保留响应式，使用 toRefs。',
       '单个原始值优先 ref，结构化对象优先 reactive 或多个 ref，按可读性选择。',
+      'reactive 对象不能直接重新赋值（如 obj = newObj），应逐个属性修改或用 Object.assign。',
     ],
     problem: '解决"数据变化后页面为什么会自动更新，以及 ref/reactive 应该怎么选"的问题。',
   },
@@ -175,7 +251,7 @@ export const lessons: Lesson[] = [
     code: K04Code,
     language: 'vue',
     principle:
-      'computed 适合描述可缓存的派生值；watch 适合监听明确来源并执行副作用；watchEffect 会自动收集同步读取到的依赖，适合快速建立依赖驱动的副作用。',
+      'computed 适合描述可缓存的派生值；watch 适合监听明确来源并执行副作用，支持 deep 和 immediate 选项；watchEffect 会自动收集同步读取到的依赖，适合快速建立依赖驱动的副作用。',
     flow: [
       '单价或数量变化后，total 自动重新计算。',
       'watch 监听 total，把金额变化写入日志。',
@@ -185,6 +261,7 @@ export const lessons: Lesson[] = [
       '能用 computed 表达的状态不要用 watch 手动同步，避免出现两份数据不一致。',
       'watch 的回调适合请求、日志、本地存储和与外部系统同步。',
       'watchEffect 依赖收集更隐式，复杂场景下 watch 的可读性通常更好。',
+      'watch 监听对象属性时需要 deep: true 才能检测嵌套变化；immediate: true 可在初始化时立即执行一次。',
     ],
     problem: '解决"派生值和状态变化后的副作用应该如何分工"的问题。',
   },
@@ -319,7 +396,7 @@ export const lessons: Lesson[] = [
     code: K10Code,
     language: 'vue',
     principle:
-      '生命周期钩子描述组件进入页面、更新和离开页面的时机；template ref 让组件在必要时访问真实 DOM 或子组件实例。',
+      '生命周期钩子描述组件进入页面、更新和离开页面的时机；template ref 让组件在必要时访问真实 DOM 或子组件实例。onBeforeUnmount 适合提前清理副作用，onUnmounted 确认组件已完全卸载。',
     flow: [
       '组件挂载后，inputRef 才能拿到真实输入框并执行 focus。',
       'onMounted 中启动计时器，页面持续更新停留时间。',
@@ -327,7 +404,7 @@ export const lessons: Lesson[] = [
     ],
     notes: [
       'DOM 相关操作必须等到 onMounted 之后。',
-      '定时器、事件监听、订阅和第三方实例都应在卸载时释放。',
+      '定时器、事件监听、订阅和第三方实例都应在 onBeforeUnmount 或 onUnmounted 中释放。',
       '能通过声明式状态完成的事情，不要优先使用 DOM 操作。',
     ],
     problem: '解决"组件什么时候能访问 DOM，以及外部资源如何随组件销毁而清理"的问题。',
@@ -439,7 +516,7 @@ export const lessons: Lesson[] = [
     code: K15Code,
     language: 'vue',
     principle:
-      '动态组件通过 component 的 is 属性决定当前渲染哪个组件。KeepAlive 会缓存离开的组件实例，让再次切回时保留内部状态。',
+      '动态组件通过 component 的 is 属性决定当前渲染哪个组件。KeepAlive 会缓存离开的组件实例，让再次切回时保留内部状态。支持 include/exclude 控制缓存范围，max 控制最大缓存数量。',
     flow: [
       '用户点击"笔记"或"练习"切换 currentTab。',
       'component 根据 currentTab 渲染对应面板。',
@@ -449,6 +526,7 @@ export const lessons: Lesson[] = [
       '不要把所有动态组件都缓存，缓存越多内存占用越高。',
       '需要感知进入和离开缓存状态时，可以使用 activated 和 deactivated。',
       '动态组件适合工作台、标签页、配置化局部区域等场景。',
+      '使用 include/exclude 按组件名控制缓存范围，max 限制最大缓存实例数避免内存泄漏。',
     ],
     problem: '解决"多个面板共用同一位置渲染，并且切换回来希望保留状态"的问题。',
   },
@@ -463,7 +541,7 @@ export const lessons: Lesson[] = [
     code: K16Code,
     language: 'vue',
     principle:
-      'Transition 在元素进入和离开时自动添加阶段类名，CSS 根据这些类名执行动画。TransitionGroup 则处理列表中多个元素的增删移动。',
+      'Transition 在元素进入和离开时自动添加阶段类名，CSS 根据这些类名执行动画。TransitionGroup 则处理列表中多个元素的增删移动。也可以通过 JavaScript 钩子（@before-enter、@enter、@leave）实现更复杂的动画控制。',
     flow: [
       '状态变化让提示文字进入或离开 DOM。',
       'Vue 自动添加 fade-enter、fade-leave 等阶段类。',
@@ -473,6 +551,7 @@ export const lessons: Lesson[] = [
       '动画应服务理解和反馈，不要为了装饰而拖慢操作。',
       '列表过渡必须使用稳定 key，否则 Vue 无法识别每个元素的身份。',
       '复杂动画可以交给 CSS 或动画库，但状态来源仍应保持清晰。',
+      'JavaScript 钩子适合配合 GSAP、anime.js 等动画库实现物理动效。',
     ],
     problem: '解决"页面状态变化太突然，用户难以感知发生了什么"的问题。',
   },
@@ -596,6 +675,183 @@ export const lessons: Lesson[] = [
     ],
     problem: '解决"项目变大后修改缺少信心、回归难以及时发现、知识案例难以长期维护"的问题。',
   },
+  {
+    id: 'K_22',
+    title: '自定义 v-model：组件级双向绑定',
+    navTitle: '自定义v-model',
+    category: '组件',
+    path: '/vue/k-22/custom-v-model',
+    summary: '用评分选择器展示组件级 v-model 的实现：modelValue、命名 model 和修饰符。',
+    demo: K22CustomVModel,
+    code: K22Code,
+    language: 'vue',
+    principle:
+      '组件级 v-model 的本质是 modelValue prop + update:modelValue emit 的语法糖。命名 model（如 v-model:title）使用对应 prop 名和 update: 事件。modelModifiers 允许组件内部处理修饰符逻辑（如 .trim、.number）。',
+    flow: [
+      '父组件通过 v-model="rating" 传入值，等价于 :modelValue="rating" @update:modelValue="rating = $event"。',
+      '子组件接收 modelValue prop，修改时 emit update:modelValue 通知父级。',
+      '命名 model 使用 v-model:title，子组件接收 title prop 并 emit update:title。',
+      'modelModifiers 对象让子组件感知修饰符，自行处理 .trim 等逻辑。',
+    ],
+    notes: [
+      'Vue3 的 v-model 默认绑定名为 modelValue，Vue2 是 value，注意迁移差异。',
+      '一个组件可以同时使用多个 v-model，如 v-model="data" v-model:title="name"。',
+      'modelModifiers 只在组件内部使用，不会影响父组件的绑定行为。',
+    ],
+    problem: '解决"自定义组件如何像原生表单一样支持 v-model 双向绑定"的问题。',
+  },
+  {
+    id: 'K_23',
+    title: '错误处理：errorCaptured、全局错误处理',
+    navTitle: '错误处理',
+    category: '工程实践',
+    path: '/vue/k-23/error-handling',
+    summary: '用错误边界展示 onErrorCaptured 捕获后代错误和 app.config.errorHandler 全局兜底。',
+    demo: K23ErrorHandling,
+    code: K23Code,
+    language: 'vue',
+    principle:
+      'onErrorCaptured 在当前组件捕获后代组件抛出的错误，返回 false 可阻止错误继续冒泡。app.config.errorHandler 注册全局错误处理器，捕获所有未被 errorCaptured 拦截的错误，适合上报监控服务。',
+    flow: [
+      '后代组件渲染或生命周期中抛出错误。',
+      'onErrorCaptured 捕获错误，展示降级 UI 并记录日志。',
+      '返回 false 阻止错误冒泡到全局；不返回则继续传播到 errorHandler。',
+      '全局 errorHandler 作为最终兜底，处理未捕获的错误。',
+    ],
+    notes: [
+      'errorCaptured 只能捕获后代组件的错误，不能捕获自身错误。',
+      '返回 false 阻止冒泡，返回 true 或不返回则继续传播。',
+      '全局 errorHandler 适合上报错误到监控服务（如 Sentry）。',
+      '异步错误（setTimeout、Promise）需要用 window.onerror 或 window.addEventListener 捕获。',
+    ],
+    problem: '解决"组件错误如何被捕获和降级，全局错误如何统一处理"的问题。',
+  },
+  {
+    id: 'K_24',
+    title: '插件开发：app.use、全局能力注册',
+    navTitle: '插件开发',
+    category: '工程实践',
+    path: '/vue/k-24/plugin-dev',
+    summary: '用通知插件展示 Vue 插件的 install 方法、全局组件注册和 provide/inject 注入。',
+    demo: K24PluginDev,
+    code: K24Code,
+    language: 'vue',
+    principle:
+      'Vue 插件是一个带有 install 方法的对象，app.use() 时自动调用。install 接收 app 实例和可选配置，可以注册全局组件、指令，或通过 app.provide 注入全局能力。组件中通过 inject 获取插件提供的方法。',
+    flow: [
+      '定义插件对象，实现 install(app, options) 方法。',
+      'install 中注册全局组件、指令或通过 app.provide 注入方法。',
+      'main.ts 中调用 app.use(plugin, options) 安装插件。',
+      '组件中通过 inject(key) 获取插件提供的能力。',
+    ],
+    notes: [
+      '优先使用 provide/inject 而非 app.config.globalProperties，前者类型更安全。',
+      'InjectionKey 确保 provide 和 inject 的类型一致。',
+      '插件配置通过 install 的第二个参数传入，支持默认值。',
+      '第三方库（Router、Pinia、Element Plus）都是通过插件机制注册的。',
+    ],
+    problem: '解决"如何封装可复用的全局能力，让多个项目或组件共享"的问题。',
+  },
+  {
+    id: 'K_25',
+    title: '浅层响应式：shallowRef、triggerRef',
+    navTitle: '浅层响应式',
+    category: '响应式进阶',
+    path: '/vue/k-25/shallow-reactivity',
+    summary: '用门店库存工作台演示大型数据只追踪顶层变化，以及批量修改后主动刷新视图。',
+    demo: K25ShallowReactivity,
+    code: K25Code,
+    language: 'vue',
+    principle:
+      'shallowRef 只追踪 .value 的替换，不会把内部对象递归转换成深层响应式。深层数据原地修改后可以调用 triggerRef 主动通知依赖更新，也可以直接替换整个顶层值。',
+    flow: [
+      '把较大的商品目录放入 shallowRef，避免为每个深层字段建立响应式代理。',
+      '批量修改商品库存时只更新普通对象，界面暂不重新渲染。',
+      '批处理完成后调用 triggerRef，一次性通知所有依赖刷新。',
+      '服务端返回新目录时直接替换 products.value，自动触发更新。',
+    ],
+    notes: [
+      '普通业务表单仍优先使用 ref 或 reactive，不要为了浅层响应式牺牲可理解性。',
+      'shallowRef 适合大型不可变数据、第三方实例、图表对象和批量更新场景。',
+      '使用 triggerRef 前要明确深层修改已经完成，避免界面展示中间状态。',
+    ],
+    problem: '解决"大型对象无需深层代理，如何控制更新时机并减少响应式开销"的问题。',
+  },
+  {
+    id: 'K_26',
+    title: '作用域副作用：effectScope、onScopeDispose',
+    navTitle: '副作用作用域',
+    category: '响应式进阶',
+    path: '/vue/k-26/effect-scope',
+    summary: '用工作台订阅演示将监听器和定时器放进同一作用域，并在退出业务模块时统一清理。',
+    demo: K26EffectScope,
+    code: K26Code,
+    language: 'vue',
+    principle:
+      'effectScope 可以收集其内部创建的 computed、watch 和 watchEffect，调用 stop 后统一停止这些响应式副作用。onScopeDispose 用于注册同一作用域内的额外清理逻辑。',
+    flow: [
+      '进入工作台时创建一个 effectScope。',
+      '在 scope.run 中启动工作区监听和后台同步定时器。',
+      '切换工作区时，watchEffect 自动响应并记录新的订阅目标。',
+      '退出工作台时调用 scope.stop，监听器与 onScopeDispose 清理逻辑一起停止。',
+    ],
+    notes: [
+      '组件 setup 本身已经运行在作用域中，effectScope 更适合组件外的服务和可复用状态模块。',
+      '定时器、WebSocket 和第三方订阅仍需通过 onScopeDispose 显式释放。',
+      '已经停止的 scope 不应重复运行，重新进入业务模块时应创建新作用域。',
+    ],
+    problem: '解决"一组相关监听和外部订阅如何统一启停，避免遗漏清理造成泄漏"的问题。',
+  },
+  {
+    id: 'K_27',
+    title: '属性透传：useAttrs、inheritAttrs',
+    navTitle: '属性透传',
+    category: '组件进阶',
+    path: '/vue/k-27/attribute-forwarding',
+    summary: '用发布按钮包装组件演示 class、事件、无障碍属性和 data-* 如何透传到真实元素。',
+    demo: K27AttributeForwarding,
+    code: K27Code,
+    language: 'vue',
+    principle:
+      '未被 props 或 emits 声明的属性会成为透传属性。单根组件默认自动把它们落到根节点；设置 inheritAttrs: false 后，可以通过 useAttrs 或 $attrs 把属性精确转发到内部目标元素。',
+    flow: [
+      '父组件给包装组件传入 class、disabled、aria-label、data-* 和点击事件。',
+      '包装组件关闭默认继承，避免属性落到错误的外层容器。',
+      '通过 useAttrs 读取透传属性，并绑定到内部真实 button。',
+      '父组件的事件和无障碍语义继续按原方式工作。',
+    ],
+    notes: [
+      '$attrs 不是深层响应式业务状态，不应通过监听它驱动复杂逻辑。',
+      '在 emits 中声明事件后，对应监听器不会继续出现在 $attrs 中。',
+      '多根节点组件不会自动透传，必须明确把 $attrs 绑定到目标节点。',
+    ],
+    problem: '解决"封装基础组件后，原生属性、事件和无障碍能力如何不丢失"的问题。',
+  },
+  {
+    id: 'K_28',
+    title: '组件公开接口：defineExpose、useTemplateRef',
+    navTitle: '组件公开接口',
+    category: '组件进阶',
+    path: '/vue/k-28/component-expose',
+    summary: '用课程搜索面板演示父组件通过模板引用调用子组件明确公开的聚焦与清空能力。',
+    demo: K28ComponentExpose,
+    code: K28Code,
+    language: 'vue',
+    principle:
+      'script setup 组件默认是封闭的，父组件不能任意访问其内部变量。子组件通过 defineExpose 明确公开少量命令式能力，父组件再用 useTemplateRef 获取类型安全的组件引用。',
+    flow: [
+      '子组件维护输入值和内部 DOM 引用。',
+      '通过 defineExpose 只公开 focusSearch 与 clearSearch 方法。',
+      '父组件使用 useTemplateRef 获取模板中的子组件实例。',
+      '用户点击外部工具按钮时，父组件调用公开方法完成聚焦或清空。',
+    ],
+    notes: [
+      '优先使用 props 和 emits 进行声明式通信，只在聚焦、滚动、播放等命令式场景使用组件引用。',
+      'defineExpose 应保持接口最小，不要把全部内部状态暴露给父组件。',
+      'useTemplateRef 是 Vue 3.5 提供的模板引用 API，引用值在组件挂载前为 null。',
+    ],
+    problem: '解决"父组件确实需要调用子组件命令时，如何保持类型安全和封装边界"的问题。',
+  },
   // Element Plus 知识案例
   {
     id: 'E_1',
@@ -632,7 +888,7 @@ export const lessons: Lesson[] = [
     code: E02Code,
     language: 'vue',
     principle:
-      'ElForm 通过 model 绑定数据，rules 定义校验规则，validate 方法执行校验。表单组件（ElInput、ElSelect 等）通过 v-model 直接关联到 form 对象的对应字段。',
+      'ElForm 通过 model 绑定数据，rules 定义校验规则，validate 方法执行校验。表单组件（ElInput、ElSelect 等）通过 v-model 直接关联到 form 对象的对应字段。还支持 validateField 局部校验和 scrollToField 滚动到错误字段。',
     flow: [
       '使用 reactive 定义表单数据对象，并用 rules 定义校验规则。',
       '表单组件通过 v-model 绑定到 form 对应字段，触发校验。',
@@ -642,6 +898,7 @@ export const lessons: Lesson[] = [
       '前端校验用于即时反馈，真实提交仍必须依赖服务端校验。',
       '校验规则支持同步和异步自定义校验器。',
       'resetFields 会同时清空值和校验状态。',
+      'validateField 可以只校验指定字段，适合分步表单或联动校验场景。',
     ],
     problem: '解决"表单如何进行数据绑定和客户端校验"的问题。',
   },
@@ -776,7 +1033,7 @@ export const lessons: Lesson[] = [
     code: E08Code,
     language: 'vue',
     principle:
-      'ElTabs 通过 v-model 控制当前激活的标签页，每个 ElTabPane 定义一个标签页的内容。切换标签时只会渲染当前激活 pane 的内容。',
+      'ElTabs 通过 v-model 控制当前激活的标签页，每个 ElTabPane 定义一个标签页的内容。切换标签时只会渲染当前激活 pane 的内容。支持 before-leave 守卫拦截切换和 lazy 懒加载。',
     flow: [
       '使用 v-model 绑定当前激活的标签页名称。',
       '每个标签页内容放在对应的 ElTabPane 中。',
@@ -786,7 +1043,747 @@ export const lessons: Lesson[] = [
       '标签页数量应控制在 5-7 个以内。',
       '禁用标签页使用 disabled 属性。',
       'type=card 可以使用卡片样式的标签页。',
+      'before-leave 守卫可以阻止不满足条件的切换，如未保存时提示用户。',
+      'lazy 属性让标签页内容在首次激活时才渲染，减少初始加载开销。',
     ],
     problem: '解决"如何在同一位置展示多个面板并让用户切换"的问题。',
+  },
+  {
+    id: 'E_9',
+    title: '分页：Pagination 与表格配合',
+    navTitle: '分页',
+    category: '数据展示',
+    path: '/element-plus/e-9/pagination',
+    summary: '用课程列表展示 ElPagination 的页码切换、每页条数和总数显示。',
+    demo: E09Pagination,
+    code: E09Code,
+    language: 'vue',
+    principle:
+      'ElPagination 通过 v-model:current-page 和 v-model:page-size 双向绑定当前页码和每页条数。layout 属性控制显示哪些元素（total、sizes、prev、pager、next 等）。配合 computed 实现前端分页切片。',
+    flow: [
+      '用 computed 根据 currentPage 和 pageSize 对数据切片。',
+      'ElPagination 的 current-change 和 size-change 事件更新分页状态。',
+      '切换每页条数时重置到第一页，避免空页。',
+    ],
+    notes: [
+      '前端分页适合数据量小的场景，大数据量应使用服务端分页。',
+      'layout 属性灵活组合，按需显示 total、sizes、jumper 等元素。',
+      '切换 pageSize 时务必重置 currentPage 为 1。',
+    ],
+    problem: '解决"数据量较多时如何分页展示，避免页面过长"的问题。',
+  },
+  {
+    id: 'E_10',
+    title: '文件上传：Upload 拖拽与校验',
+    navTitle: '文件上传',
+    category: '表单组件',
+    path: '/element-plus/e-10/upload',
+    summary: '用课程资料上传展示 ElUpload 的拖拽上传、文件校验和数量限制。',
+    demo: E10Upload,
+    code: E10Code,
+    language: 'vue',
+    principle:
+      'ElUpload 支持 click 和 drag 两种上传方式。before-upload 钩子在文件上传前校验类型和大小，返回 false 阻止上传。limit 和 on-exceed 配合控制最大文件数。auto-upload 控制是否自动上传。',
+    flow: [
+      '用户选择或拖拽文件到上传区域。',
+      'before-upload 校验文件类型和大小，不满足则阻止上传。',
+      '超出 limit 限制时 on-exceed 回调提示用户。',
+      'auto-upload=false 时需手动调用 submit 触发上传。',
+    ],
+    notes: [
+      'before-upload 返回 false 可阻止上传，返回 Promise 支持异步校验。',
+      '生产环境应配合后端返回文件 URL，前端只负责选择和展示。',
+      '大文件上传建议使用分片上传，避免超时。',
+    ],
+    problem: '解决"用户如何上传文件，并在上传前校验类型和大小"的问题。',
+  },
+  {
+    id: 'E_11',
+    title: '级联选择：Cascader 多级联动',
+    navTitle: '级联选择',
+    category: '表单组件',
+    path: '/element-plus/e-11/cascader',
+    summary: '用课程分类选择展示 ElCascader 的多级联动和路径显示。',
+    demo: E11Cascader,
+    code: E11Code,
+    language: 'vue',
+    principle:
+      'ElCascader 通过 options 属性接收树形数据，每级包含 value、label 和 children。v-model 绑定值为各级 value 组成的路径数组。expandTrigger 控制子级展开方式（click/hover）。',
+    flow: [
+      '定义树形 options 数据，每级有 value、label 和 children。',
+      'v-model 绑定选中路径数组，如 ["frontend", "vue", "vue3-basics"]。',
+      '选择完成后显示完整路径，可通过 props.emitPath=false 只获取最后一级值。',
+    ],
+    notes: [
+      '数据量大时考虑异步加载（props.lazy + props.lazyLoad）。',
+      'emitPath=false 时 v-model 只绑定最后一级的 value。',
+      '可配合 filterable 属性支持搜索过滤。',
+    ],
+    problem: '解决"多级分类数据如何逐级选择并显示完整路径"的问题。',
+  },
+  {
+    id: 'E_12',
+    title: '工具提示：Tooltip 方向与触发',
+    navTitle: '工具提示',
+    category: '展示组件',
+    path: '/element-plus/e-12/tooltip',
+    summary: '用课程信息提示展示 ElTooltip 的方向、触发方式和富内容插槽。',
+    demo: E12Tooltip,
+    code: E12Code,
+    language: 'vue',
+    principle:
+      'ElTooltip 在鼠标悬停或点击时显示提示信息。placement 控制弹出方向，trigger 控制触发方式（hover/click）。content 属性用于简单文本，#content 插槽支持富内容（多行、链接等）。',
+    flow: [
+      '用 placement 属性设置提示方向（top/bottom/left/right）。',
+      'trigger="click" 改为点击触发，适合需要用户主动查看的场景。',
+      '#content 插槽放置多行或结构化内容。',
+    ],
+    notes: [
+      'Tooltip 内容应简洁，复杂信息建议用 Popover。',
+      'hide-after 控制自动隐藏延迟，设为 0 不自动隐藏。',
+      'Tooltip 不会阻塞页面交互，适合辅助说明。',
+    ],
+    problem: '解决"鼠标悬停时如何显示简短辅助信息"的问题。',
+  },
+  {
+    id: 'E_13',
+    title: '日期选择：DatePicker 范围与快捷选项',
+    navTitle: '日期选择',
+    category: '表单组件',
+    path: '/element-plus/e-13/date-picker',
+    summary: '用运营报表筛选演示 ElDatePicker 的日期范围、快捷周期、格式化和禁用日期。',
+    demo: E13DatePicker,
+    code: E13Code,
+    language: 'vue',
+    principle:
+      'ElDatePicker 通过 type 切换日期、月份和范围模式。daterange 模式的 v-model 保存开始与结束日期，shortcuts 提供常用周期，disabled-date 控制不可选日期，value-format 决定绑定值格式。',
+    flow: [
+      '使用 type="daterange" 让用户一次选择开始和结束日期。',
+      '通过 shortcuts 配置最近 7 天、最近 30 天等常用范围。',
+      'disabled-date 禁止选择未来日期，避免产生无效报表条件。',
+      '根据选中范围计算统计天数并展示筛选摘要。',
+    ],
+    notes: [
+      'value-format 会改变 v-model 的值类型，TypeScript 类型应与配置保持一致。',
+      '服务端通常需要明确时区和当天起止时间，不能只传界面显示字符串。',
+      '移动端日期范围组件较宽，应保证容器允许组件自适应。',
+    ],
+    problem: '解决"报表和订单查询如何快速选择有效日期范围"的问题。',
+  },
+  {
+    id: 'E_14',
+    title: '树形控件：Tree 勾选、过滤与节点操作',
+    navTitle: '树形控件',
+    category: '数据展示',
+    path: '/element-plus/e-14/tree',
+    summary: '用角色权限配置演示 ElTree 的复选框、节点过滤、默认展开和实例方法。',
+    demo: E14Tree,
+    code: E14Code,
+    language: 'vue',
+    principle:
+      'ElTree 使用树形 data 渲染层级数据，node-key 为节点提供稳定身份。show-checkbox 开启多选，filter-node-method 实现搜索过滤，组件实例提供 getCheckedKeys、setCheckedKeys 等命令式方法。',
+    flow: [
+      '把菜单和操作权限整理为带 children 的树形结构。',
+      '通过 node-key 与 default-checked-keys 恢复已有角色权限。',
+      '输入关键词时调用 filter，只保留匹配节点及其关联路径。',
+      '保存时通过 getCheckedKeys 获取叶子权限编号。',
+    ],
+    notes: [
+      '权限树应区分父节点和叶子操作，后端保存格式需要双方约定。',
+      '数据量较大时可以使用 lazy 与 load 按需加载子节点。',
+      '通过 ref 调用实例方法前，需要确认组件已经挂载。',
+    ],
+    problem: '解决"菜单、组织架构和权限等层级数据如何选择与搜索"的问题。',
+  },
+  {
+    id: 'E_15',
+    title: '抽屉：Drawer 侧边详情与编辑',
+    navTitle: '抽屉',
+    category: '反馈组件',
+    path: '/element-plus/e-15/drawer',
+    summary: '用课程详情编辑演示 ElDrawer 的显示控制、尺寸、销毁策略和表单操作。',
+    demo: E15Drawer,
+    code: E15Code,
+    language: 'vue',
+    principle:
+      'ElDrawer 从视口边缘展开，适合在保留当前列表上下文时查看详情或完成轻量编辑。v-model 控制显示，size 控制宽度，direction 控制方向，destroy-on-close 可以在关闭后销毁内部内容。',
+    flow: [
+      '用户在课程列表中点击查看详情，打开右侧抽屉。',
+      '抽屉内展示课程信息并允许编辑运营备注。',
+      '保存时进入 loading 状态，完成后关闭抽屉并反馈结果。',
+      'destroy-on-close 在关闭后清理复杂表单和临时组件状态。',
+    ],
+    notes: [
+      '抽屉适合轻量编辑，复杂多步骤任务仍应使用独立页面。',
+      '关闭前有未保存内容时，应使用 before-close 提示用户确认。',
+      '移动端应使用百分比尺寸，避免固定宽度超出视口。',
+    ],
+    problem: '解决"查看或编辑详情时如何保留用户当前列表位置和筛选上下文"的问题。',
+  },
+  {
+    id: 'E_16',
+    title: '步骤条：Steps 流程状态与进度',
+    navTitle: '步骤条',
+    category: '导航组件',
+    path: '/element-plus/e-16/steps',
+    summary: '用训练营报名流程演示 ElSteps 的当前步骤、完成状态和流程重置。',
+    demo: E16Steps,
+    code: E16Code,
+    language: 'vue',
+    principle:
+      'ElSteps 通过 active 指定当前进度索引，每个 ElStep 描述一个阶段。finish-status 控制已完成步骤的状态，process-status 控制当前步骤状态，align-center 和 direction 调整布局。',
+    flow: [
+      '把报名业务拆分为提交、审核、确认和开课四个稳定阶段。',
+      'activeStep 与后端流程状态映射，驱动步骤条高亮。',
+      '流程推进时更新 active，已完成步骤自动显示成功状态。',
+      '流程结束后禁用继续按钮，也可以重置演示状态。',
+    ],
+    notes: [
+      '步骤条用于展示有限且稳定的阶段，不适合表达复杂分支流程。',
+      'active 是从 0 开始的索引，完成全部步骤时通常设为步骤数量。',
+      '小屏幕下长标题应缩短，必要时改用 vertical 垂直布局。',
+    ],
+    problem: '解决"报名、审批、订单等多阶段流程如何清晰展示当前进度"的问题。',
+  },
+  // LangChain 知识案例
+  {
+    id: 'L_1',
+    title: 'LLM 调用：ChatOpenAI、invoke、streaming',
+    navTitle: '入门调用',
+    category: '基础入门',
+    path: '/langchain/l-1/llm-call',
+    summary: '用智能问答模拟器展示 ChatOpenAI 的基本调用、模型配置和流式输出。',
+    demo: L01LLMCall,
+    code: L01Code,
+    language: 'vue',
+    principle:
+      'ChatOpenAI 是 LangChain.js 中最常用的聊天模型封装。通过构造函数传入模型名称和参数（temperature、maxTokens 等），调用 invoke 获取完整回复，调用 stream 获取逐 token 的流式输出。temperature 控制输出的随机性，maxTokens 限制输出长度。',
+    flow: [
+      '创建 ChatOpenAI 实例，配置 modelName、temperature 和 maxTokens。',
+      '调用 invoke(messages) 获取完整回复，或调用 stream(messages) 逐 token 接收。',
+      '模型返回 AIMessage 对象，通过 .content 获取文本内容。',
+    ],
+    notes: [
+      '生产环境应通过环境变量管理 API Key，不要硬编码在代码中。',
+      'streaming 适合长文本生成场景，能显著改善用户等待体验。',
+      'temperature 越高输出越随机，越低越确定；代码生成建议 0-0.2，创意写作建议 0.7-1.0。',
+      'maxTokens 用于控制输出长度，避免生成过长内容浪费 token。',
+    ],
+    problem: '解决"如何用 LangChain.js 调用 LLM 并获取回复"的入门问题。',
+  },
+  {
+    id: 'L_2',
+    title: 'Prompt Template：提示词模板与变量注入',
+    navTitle: '提示模板',
+    category: '提示工程',
+    path: '/langchain/l-2/prompt-template',
+    summary: '用产品文案生成器展示 PromptTemplate 的变量注入、ChatPromptTemplate 的消息序列和 Partial Variables。',
+    demo: L02PromptTemplate,
+    code: L02Code,
+    language: 'vue',
+    principle:
+      'PromptTemplate 将提示词中的可变部分抽取为模板变量，通过 format 时传入具体值生成最终提示。ChatPromptTemplate 按消息角色（system/human/ai）组织提示序列，适合对话场景。Partial Variables 支持先填入部分变量，后续补全其余变量。',
+    flow: [
+      '定义模板字符串，用 {variable} 标记可变位置。',
+      '调用 template.format({ variable: value }) 生成完整提示词。',
+      'ChatPromptTemplate.fromMessages 按角色组织消息，formatMessages 返回消息数组。',
+      'Partial Variables 允许分步注入变量，适合部分参数延迟获取的场景。',
+    ],
+    notes: [
+      '模板变量名应语义清晰，避免使用单字母或模糊名称。',
+      '复杂提示应拆分为 system 指令 + human 输入，让模型更好理解上下文。',
+      '模板支持 partial 格式化，可以先填入部分变量，后续再补全。',
+    ],
+    problem: '解决"提示词中可变部分如何管理，避免字符串拼接"的问题。',
+  },
+  {
+    id: 'L_3',
+    title: 'Output Parsers：输出解析与结构化',
+    navTitle: '输出解析',
+    category: '输出处理',
+    path: '/langchain/l-3/output-parser',
+    summary: '用课程推荐展示 StringOutputParser 和基于 Zod 的结构化输出解析。',
+    demo: L03OutputParser,
+    code: L03Code,
+    language: 'vue',
+    principle:
+      'LLM 返回的是纯文本，Output Parser 将其转换为程序可处理的结构化数据。StringOutputParser 提取纯文本，基于 Zod schema 的 StructuredOutputParser 将输出解析为带类型的 JSON 对象。LangChain.js 推荐使用 Zod 定义输出结构。',
+    flow: [
+      'LLM 返回 AIMessage 对象，.content 是原始文本。',
+      'StringOutputParser 直接提取 .content 字符串。',
+      '基于 Zod schema 的 StructuredOutputParser 将文本解析为带类型的 JSON 对象。',
+    ],
+    notes: [
+      'StructuredOutputParser 会自动在提示词中追加格式指令，告诉模型输出格式。',
+      '解析失败时应提供兜底逻辑，例如重试或返回默认值。',
+      'LangChain.js 推荐使用 Zod schema 定义输出结构，类型更安全且与 TypeScript 天然集成。',
+    ],
+    problem: '解决"LLM 输出是自由文本，如何可靠地转换为结构化数据"的问题。',
+  },
+  {
+    id: 'L_4',
+    title: 'LCEL：LangChain Expression Language',
+    navTitle: 'LCEL',
+    category: '核心概念',
+    path: '/langchain/l-4/lcel',
+    summary: '用管道执行器展示 LCEL 的 prompt.pipe(model).pipe(parser) 链式组合和数据流转。',
+    demo: L04LCEL,
+    code: L04Code,
+    language: 'vue',
+    principle:
+      'LCEL 是 LangChain 的表达式语言，通过 .pipe() 方法将 Runnable 组件串联。每个 Runnable 接收上游输出作为输入，处理后传给下游，形成声明式的数据处理管道。也可以用 RunnableSequence.from 数组形式组合。',
+    flow: [
+      '定义 prompt、model、parser 三个 Runnable 组件。',
+      '用 .pipe() 串联：const chain = prompt.pipe(model).pipe(parser)。',
+      '或用 RunnableSequence.from([prompt, model, parser]) 等价组合。',
+      '调用 chain.invoke({ input }) 执行整个管道，数据依次流过每个组件。',
+    ],
+    notes: [
+      'LCEL 是 LangChain 推荐的组件组合方式，替代了旧版 Chain 类。',
+      'RunnablePassthrough 用于透传输入，RunnableParallel 用于并行执行多个分支。',
+      '管道中的每个组件都支持 invoke、stream、batch 三种调用方式。',
+    ],
+    problem: '解决"如何声明式地组合 LLM 应用的各个处理步骤"的问题。',
+  },
+  {
+    id: 'L_5',
+    title: 'Chains：链式调用与多步处理',
+    navTitle: '链式调用',
+    category: '核心概念',
+    path: '/langchain/l-5/chains',
+    summary: '用课程大纲生成展示 LCEL 多步骤链式处理：大纲生成 → 内容展开 → 摘要提炼。',
+    demo: L05Chains,
+    code: L05Code,
+    language: 'vue',
+    principle:
+      'Chain 将多个 LLM 调用和处理步骤串联成完整业务流程。前一步的输出作为后一步的输入，每步专注于单一职责，整体完成复杂任务。LangChain.js 推荐使用 LCEL 的 .pipe() 组合各步骤。',
+    flow: [
+      '第一步链根据主题生成课程大纲。',
+      '第二步链接收大纲，展开详细内容。',
+      '第三步链接收详细内容，提炼核心摘要。',
+    ],
+    notes: [
+      '每步链应职责单一，避免在单个链中处理过多逻辑。',
+      '链的中间结果可以缓存，避免重复调用 LLM。',
+      'LangChain.js 推荐用 LCEL pipe 组合链，旧版 LLMChain/SequentialChain 已废弃。',
+      '复杂流程可使用 LCEL 的 RunnableBranch 实现条件分支。',
+    ],
+    problem: '解决"复杂任务需要多步 LLM 处理，如何组织步骤间的数据传递"的问题。',
+  },
+  {
+    id: 'L_6',
+    title: 'RAG 基础：文档加载与文本切分',
+    navTitle: '文档切分',
+    category: 'RAG',
+    path: '/langchain/l-6/doc-splitter',
+    summary: '用文档切分器展示 RecursiveCharacterTextSplitter 的块大小和重叠量配置。',
+    demo: L06DocSplitter,
+    code: L06Code,
+    language: 'vue',
+    principle:
+      'RAG 的第一步是将长文档切分为适合检索的小块。RecursiveCharacterTextSplitter 按字符数切分，保留块间重叠以维持上下文连续性。chunkSize 控制块大小，chunkOverlap 控制重叠量。',
+    flow: [
+      '加载原始文档（TextLoader、PDFLoader 等）。',
+      '配置 RecursiveCharacterTextSplitter 的 chunkSize 和 chunkOverlap。',
+      '调用 splitter.splitDocuments(documents) 得到切分后的文档块列表。',
+    ],
+    notes: [
+      'chunkSize 通常在 500-1500 字符之间，太小丢失上下文，太大降低检索精度。',
+      'chunkOverlap 建议设为 chunkSize 的 10%-20%。',
+      '不同文档类型可使用不同的 splitter，例如代码用 Language-specific splitter。',
+    ],
+    problem: '解决"长文档如何切分为适合向量检索的小块"的问题。',
+  },
+  {
+    id: 'L_7',
+    title: 'RAG 进阶：向量存储与相似度检索',
+    navTitle: '向量检索',
+    category: 'RAG',
+    path: '/langchain/l-7/vector-retrieval',
+    summary: '用知识库搜索展示文档嵌入、余弦相似度计算和 Top-K 检索结果排序。',
+    demo: L07VectorRetrieval,
+    code: L07Code,
+    language: 'vue',
+    principle:
+      '向量检索是 RAG 的核心。文档通过 Embedding 模型转换为高维向量（如 text-embedding-3-small 输出 1536 维），查询同样被转换为向量，通过余弦相似度等度量找到最相关的文档块。VectorStore 封装了存储和检索逻辑。',
+    flow: [
+      '将文档块通过 Embedding 模型转换为向量。',
+      '存入 VectorStore（MemoryVectorStore、FAISS、Pinecone 等）。',
+      '查询时将问题转为向量，调用 similaritySearch 返回最相关的 K 个文档块。',
+    ],
+    notes: [
+      'Embedding 模型的选择直接影响检索质量，OpenAI 的 text-embedding-3-small 是常用选择。',
+      '真实 Embedding 向量维度通常为 1536 或 3072，本 demo 用 3 维简化演示。',
+      '生产环境推荐使用持久化向量数据库，如 Pinecone、Weaviate 或 Chroma。',
+      '检索结果数量 K 值需要根据场景调优，通常 3-5 个即可。',
+    ],
+    problem: '解决"如何从大量文档中快速找到与问题最相关的内容"的问题。',
+  },
+  {
+    id: 'L_8',
+    title: 'Agent：智能代理与 ReAct 推理',
+    navTitle: '智能代理',
+    category: 'Agent',
+    path: '/langchain/l-8/agent',
+    summary: '用推理过程展示 Agent 的 ReAct 循环：思考 → 行动 → 观察 → 回答。',
+    demo: L08Agent,
+    code: L08Code,
+    language: 'vue',
+    principle:
+      'Agent 是能够自主决策的 LLM 应用。ReAct 模式让 Agent 在每一步先思考需要做什么，然后选择工具执行行动，观察结果后再决定下一步，直到得出最终答案。',
+    flow: [
+      'Agent 接收用户问题，进入推理循环。',
+      '思考阶段：分析当前信息，决定下一步行动。',
+      '行动阶段：选择工具并执行，获取观察结果。',
+      '重复思考和行动，直到信息足够生成最终答案。',
+    ],
+    notes: [
+      'Agent 的推理过程不可预测，需要设置最大迭代次数防止无限循环。',
+      '工具描述的清晰程度直接影响 Agent 选择工具的准确性。',
+      '简单任务不需要 Agent，直接用 Chain 更可控。',
+    ],
+    problem: '解决"LLM 如何根据问题自主选择工具并逐步推理"的问题。',
+  },
+  {
+    id: 'L_9',
+    title: 'Tools：工具定义与调用',
+    navTitle: '工具定义',
+    category: 'Agent',
+    path: '/langchain/l-9/tools',
+    summary: '用工具注册表展示 tool 函数的定义、Zod 参数 Schema 和调用过程。',
+    demo: L09Tools,
+    code: L09Code,
+    language: 'vue',
+    principle:
+      'Tool 是 Agent 与外部世界交互的接口。每个工具定义名称、描述和参数 Schema，Agent 根据描述判断何时调用哪个工具。LangChain.js 推荐使用 tool 函数配合 Zod schema 定义工具，提供类型安全的方式。',
+    flow: [
+      '使用 tool 函数定义工具名称、描述和 Zod 参数 Schema。',
+      '实现工具的执行函数，接收参数并返回结果。',
+      '将工具注册到 Agent，Agent 在推理时自动选择和调用。',
+    ],
+    notes: [
+      '工具描述要清晰具体，说明适用场景和输入格式。',
+      '工具执行应有超时和错误处理，避免阻塞 Agent 推理。',
+      '参数 Schema 越精确，Agent 传参错误越少。',
+      'LangChain.js 推荐使用 tool 函数 + Zod schema，旧版 DynamicTool 已不推荐。',
+    ],
+    problem: '解决"Agent 如何与外部系统交互，以及如何定义可被 LLM 理解的工具接口"的问题。',
+  },
+  {
+    id: 'L_10',
+    title: 'Memory：对话记忆与历史管理',
+    navTitle: '对话记忆',
+    category: '对话管理',
+    path: '/langchain/l-10/memory',
+    summary: '用对话面板展示 BufferMemory、BufferWindowMemory 和 SummaryMemory 三种记忆策略。',
+    demo: L10Memory,
+    code: L10Code,
+    language: 'vue',
+    principle:
+      'Memory 让 LLM 应用记住之前的对话。BufferMemory 保留完整历史，ConversationBufferWindowMemory 只保留最近 k 轮，ConversationSummaryMemory 将历史压缩为摘要。不同策略在上下文长度和记忆完整性之间取舍。',
+    flow: [
+      '每次对话后将消息存入 Memory（底层使用 ChatMessageHistory）。',
+      '下次调用 LLM 前从 Memory 读取历史，拼接到提示词中。',
+      '根据场景选择合适的记忆策略：短对话用 Buffer，长对话用 Window 或 Summary。',
+    ],
+    notes: [
+      '对话轮数多时 BufferMemory 会超出 token 限制，需要切换为 Window 或 Summary。',
+      'SummaryMemory 需要额外的 LLM 调用来生成摘要，增加延迟和成本。',
+      'ChatMessageHistory 是底层存储，支持持久化到 Redis、数据库等后端。',
+      '生产环境建议使用持久化存储而非内存存储。',
+    ],
+    problem: '解决"LLM 应用如何记住之前的对话，并在 token 限制内保持上下文"的问题。',
+  },
+  {
+    id: 'L_11',
+    title: 'Callbacks：回调与可观测性',
+    navTitle: '回调追踪',
+    category: '工程实践',
+    path: '/langchain/l-11/callbacks',
+    summary: '用事件时间线展示 handleChainStart、handleLLMStart、handleLLMNewToken、handleLLMEnd 等回调的触发时机。',
+    demo: L11Callbacks,
+    code: L11Code,
+    language: 'vue',
+    principle:
+      'Callbacks 是 LangChain 的可观测性机制。通过注册回调处理器，可以在 Runnable 执行的各个阶段（链开始、LLM 调用开始、生成 token、调用结束、出错）执行自定义逻辑，用于日志、监控、调试和流式输出。',
+    flow: [
+      '实现 CallbackHandler，定义 handleChainStart、handleLLMStart、handleLLMNewToken、handleLLMEnd 等方法。',
+      '将 handler 传入 Runnable 的 callbacks 参数。',
+      '执行过程中回调自动触发，记录每个阶段的输入输出和耗时。',
+    ],
+    notes: [
+      '生产环境建议集成 LangSmith 或 LangFuse 进行链路追踪。',
+      'handleLLMNewToken 是实现流式输出的关键回调。',
+      'handleChainError 用于捕获链执行中的错误，实现错误监控和告警。',
+      '回调中不要执行耗时操作，避免阻塞 LLM 调用流程。',
+    ],
+    problem: '解决"LLM 应用执行过程不透明，如何监控和调试"的问题。',
+  },
+  {
+    id: 'L_12',
+    title: '综合实战：Retriever + Agent + Memory 智能问答',
+    navTitle: '智能问答',
+    category: '综合实战',
+    path: '/langchain/l-12/qa-bot',
+    summary: '用智能问答助手展示 Retriever 检索、Agent 推理和对话记忆的综合应用。',
+    demo: L12QABot,
+    code: L12Code,
+    language: 'vue',
+    principle:
+      '真实 LLM 应用通常需要组合多种能力。Retriever 从 VectorStore 检索相关文档，Agent 提供推理决策，Memory 提供上下文记忆。三者协同构成完整的智能问答系统：先检索相关文档，再推理生成答案，同时维护对话历史。',
+    flow: [
+      '从 Memory 中检索对话上下文，了解用户历史意图。',
+      '通过 Retriever 从 VectorStore 检索与当前问题相关的文档片段。',
+      'Agent 结合检索结果和上下文，推理生成最终答案。',
+    ],
+    notes: [
+      '检索质量是 RAG 应用的关键瓶颈，投入精力优化文档切分和检索策略。',
+      'Agent 的可靠性需要通过测试和监控持续改进。',
+      '生产环境要考虑降级策略：Agent 失败时回退到简单 Chain。',
+    ],
+    problem: '解决"如何将 RAG、Agent、Memory 组合为完整的智能问答系统"的问题。',
+  },
+  {
+    id: 'L_13',
+    title: '流式输出深入：invoke、stream、astream_events',
+    navTitle: '流式输出',
+    category: '核心概念',
+    path: '/langchain/l-13/streaming',
+    summary: '用三种流式策略对比展示 invoke、stream 和 astream_events 的差异和适用场景。',
+    demo: L13Streaming,
+    code: L13Code,
+    language: 'vue',
+    principle:
+      'LangChain.js 提供三种执行方式：invoke 等待完整响应后返回；stream 逐 token 流式返回，适合实时展示生成过程；astream_events 提供事件级流式输出，包含 run_id、tags 等元数据，适合复杂链路的细粒度监控和调试。',
+    flow: [
+      'invoke：调用后阻塞等待，一次性返回完整结果。适合短文本或不需要流式展示的场景。',
+      'stream：返回异步迭代器，逐 token 输出。适合聊天界面等需要实时展示的场景。',
+      'astream_events：返回事件流，包含链开始/结束、LLM 开始/结束、token 输出等事件。适合调试和监控。',
+    ],
+    notes: [
+      'stream 是最常用的流式方式，API 简洁且性能好。',
+      'astream_events 的 version 必须指定为 "v2"，v1 已废弃。',
+      'invoke 和 stream 都支持 batch 方法（batch/abatch），用于并行处理多个输入。',
+      '生产环境推荐 stream + handleLLMNewToken 回调实现流式输出。',
+    ],
+    problem: '解决"不同场景下如何选择合适的流式输出策略"的问题。',
+  },
+  {
+    id: 'L_14',
+    title: '评估与测试：输出质量评估',
+    navTitle: '评估测试',
+    category: '工程实践',
+    path: '/langchain/l-14/evaluation',
+    summary: '用问答质量评估展示 LLM-as-Judge 评估模式和人工评分对比。',
+    demo: L14Evaluation,
+    code: L14Code,
+    language: 'vue',
+    principle:
+      'LLM 输出质量评估是生产部署的关键环节。LLM-as-Judge 模式使用另一个 LLM 对输出打分，评估相关性、准确性和完整性等维度。结合人工评分可以校准自动评估的偏差。LangChain 提供了 StringEvaluator 和 QA 评估器等工具。',
+    flow: [
+      '定义评估维度：相关性、准确性、完整性等。',
+      '使用 LLM-as-Judge 自动评分：构造评估提示词，让 LLM 对输出打分。',
+      '人工评分校准：对比自动评分和人工评分的差异，调整评估提示词。',
+      '持续监控：在生产环境中定期抽样评估，追踪输出质量变化。',
+    ],
+    notes: [
+      'LLM-as-Judge 的评估提示词需要精心设计，避免评估 LLM 的偏见。',
+      '评估维度应根据业务场景定制，不同应用关注点不同。',
+      '人工评分是校准自动评估的金标准，至少抽样 50-100 条。',
+      'LangSmith 提供了内置的评估和追踪功能，推荐在生产环境使用。',
+    ],
+    problem: '解决"LLM 输出质量如何客观评估，以及如何持续监控"的问题。',
+  },
+  {
+    id: 'R_1',
+    title: 'createRoot、函数组件与 Props',
+    navTitle: '组件与 Props',
+    category: '组件基础',
+    path: '/react/r-1/component-props',
+    summary: '用课程卡片理解 React 根节点挂载、函数组件组合、单向数据流和只读 Props。',
+    demo: R01ComponentProps,
+    code: R01Code,
+    language: 'javascript',
+    principle:
+      'React 组件是返回界面描述的 JavaScript 函数。createRoot 为指定 DOM 容器创建 React 根节点，render 再把组件树交给 React 管理。父组件通过 Props 向子组件传值，子组件应把 Props 视为只读输入；需要变化的数据应提升为状态，而不是直接修改 Props。',
+    flow: [
+      '使用 createRoot 获取页面中的根容器，并渲染 App 根组件。',
+      'App 保存课程数据，通过 map 组合多个 CourseCard。',
+      'CourseCard 根据 Props 生成界面，同一组件可用于不同课程数据。',
+    ],
+    notes: [
+      '组件名称必须以大写字母开头，否则 React 会把它当作原生 HTML 标签。',
+      'Props 是组件调用时的输入快照，不要在子组件中直接修改。',
+      '本案例故意使用 React.createElement 而非 JSX，以便通过普通 JavaScript 模块直接运行。',
+    ],
+    problem: '解决"React 应用如何挂载，以及如何用组件和 Props 拆分可复用界面"的问题。',
+  },
+  {
+    id: 'R_2',
+    title: 'useState 与对象、数组的不可变更新',
+    navTitle: '状态更新',
+    category: '状态管理',
+    path: '/react/r-2/state-updates',
+    summary: '用购物车数量调整演示 useState、函数式更新和数组对象的不可变替换。',
+    demo: R02StateUpdates,
+    code: R02Code,
+    language: 'javascript',
+    principle:
+      'useState 为组件保存跨渲染的状态快照。调用 setter 会请求下一次渲染，而不会立即改写当前变量。对象和数组状态应创建新引用；React 使用 Object.is 比较新旧状态，原地修改既破坏状态快照，也可能让更新被跳过。',
+    flow: [
+      'useState 保存购物车数组，并在每次渲染中计算总价。',
+      '点击加减按钮后使用函数式 setter，确保基于最新状态计算。',
+      'map 只替换目标商品对象，其余对象保持原引用。',
+    ],
+    notes: [
+      '下一状态依赖上一状态时优先使用 setState(current => next) 形式。',
+      '不要使用 push、splice 或直接修改 item.count 更新 React 状态。',
+      '总价可由购物车直接推导，不需要额外 state 或 Effect。',
+    ],
+    problem: '解决"复杂状态如何可靠更新，并保持 React 状态快照和渲染一致"的问题。',
+  },
+  {
+    id: 'R_3',
+    title: '条件列表、稳定 Key 与派生数据',
+    navTitle: '列表与 Key',
+    category: '渲染模式',
+    path: '/react/r-3/lists-keys',
+    summary: '用课程检索展示列表映射、稳定 Key，以及在渲染阶段计算筛选结果。',
+    demo: R03ListsKeys,
+    code: R03Code,
+    language: 'javascript',
+    principle:
+      'React 使用 key 区分同级列表项在多次渲染间的身份。稳定的业务 ID 能帮助 React 正确复用节点并保留对应状态；数组索引在插入、删除或排序时会改变身份。能从 Props 或 State 得到的数据应在渲染阶段直接计算，避免冗余状态。',
+    flow: [
+      '输入框更新唯一的 keyword 状态。',
+      '组件每次渲染时根据 keyword 过滤课程数组。',
+      'map 使用课程 ID 作为 key，生成当前可见的课程卡片。',
+    ],
+    notes: [
+      'key 只需在当前同级列表内唯一，不会作为普通 Props 自动传给组件。',
+      '列表会重排时不要使用数组索引作为 key。',
+      '筛选结果不是独立事实，不应通过 Effect 再同步到另一份 state。',
+    ],
+    problem: '解决"动态列表如何保持项目身份，以及如何避免派生状态不同步"的问题。',
+  },
+  {
+    id: 'R_4',
+    title: '受控表单、统一字段更新与提交校验',
+    navTitle: '受控表单',
+    category: '用户输入',
+    path: '/react/r-4/controlled-form',
+    summary: '用训练营报名表展示 value、onChange、表单提交和即时校验。',
+    demo: R04ControlledForm,
+    code: R04Code,
+    language: 'javascript',
+    principle:
+      '受控表单由 React State 作为输入值的唯一来源。value 决定界面显示内容，onChange 把用户输入写回 State，提交处理器通过 preventDefault 接管浏览器默认提交。表单对象更新时应保留未变化字段。',
+    flow: [
+      '使用一个对象状态保存姓名和学习方向。',
+      '统一的 change 处理器根据 input 的 name 更新对应字段。',
+      '提交前阻止默认刷新并校验数据，通过后生成提交反馈。',
+    ],
+    notes: [
+      '受控输入的 value 不应在 undefined 和字符串之间切换。',
+      '即时可推导的校验结果可以直接在渲染中计算。',
+      '提交按钮禁用只改善交互，提交处理器仍需执行最终校验。',
+    ],
+    problem: '解决"React 如何统一管理输入值、校验状态和表单提交"的问题。',
+  },
+  {
+    id: 'R_5',
+    title: 'useEffect：与外部系统同步和清理订阅',
+    navTitle: 'Effect 同步',
+    category: '副作用',
+    path: '/react/r-5/effect-sync',
+    summary: '用跨时区时钟说明 Effect 的适用边界、依赖数组与清理函数。',
+    demo: R05EffectSync,
+    code: R05Code,
+    language: 'javascript',
+    principle:
+      'Effect 用于让组件与 React 之外的系统同步，例如定时器、浏览器事件、网络连接或第三方组件。React 在提交界面后运行 Effect，并在重新运行或卸载前调用清理函数。纯粹的数据转换不属于 Effect，应留在渲染阶段。',
+    flow: [
+      '组件挂载后创建 setInterval，定期更新当前时间。',
+      'Effect 返回清理函数，在组件卸载时取消计时器。',
+      '选择时区只改变格式化参数，不需要重新创建计时器。',
+    ],
+    notes: [
+      'Effect 依赖必须包含其中读取的响应式值，不能靠遗漏依赖控制执行次数。',
+      '开发环境 Strict Mode 可能额外执行一次 setup 和 cleanup，用于暴露清理缺陷。',
+      '筛选、排序、格式化等纯计算通常不需要 Effect。',
+    ],
+    problem: '解决"何时应使用 Effect，以及如何避免订阅泄漏和重复同步"的问题。',
+  },
+  {
+    id: 'R_6',
+    title: 'useReducer：集中管理复杂状态转换',
+    navTitle: 'Reducer',
+    category: '状态管理',
+    path: '/react/r-6/reducer',
+    summary: '用成员入组流程展示 reducer、action 和可预测的状态转换。',
+    demo: R06Reducer,
+    code: R06Code,
+    language: 'javascript',
+    principle:
+      'useReducer 把状态转换从事件处理器集中到纯 reducer 函数。事件通过 dispatch 描述发生了什么，reducer 根据当前状态和 action 返回下一状态。它适合字段关联较多、更新路径复杂或需要审计状态变化的场景。',
+    flow: [
+      '定义初始状态和 reducer 支持的 action 类型。',
+      '用户操作只 dispatch 语义明确的 action。',
+      'reducer 返回新状态，组件根据状态渲染当前流程。',
+    ],
+    notes: [
+      'reducer 必须保持纯函数，不要在其中请求接口或修改外部变量。',
+      '未知 action 主动抛错有助于尽早发现调用错误。',
+      '简单独立值优先 useState，不必为所有状态引入 reducer。',
+    ],
+    problem: '解决"多个事件共同修改关联状态时，更新逻辑分散且难以追踪"的问题。',
+  },
+  {
+    id: 'R_7',
+    title: 'Context：跨层共享与 Provider 边界',
+    navTitle: 'Context',
+    category: '组件通信',
+    path: '/react/r-7/context',
+    summary: '用工作台主题演示 createContext、Provider 和深层组件订阅。',
+    demo: R07Context,
+    code: R07Code,
+    language: 'javascript',
+    principle:
+      'Context 让组件读取上层最近 Provider 提供的值，适合主题、当前用户、地区等树级共享信息。Context 值变化时，读取该 Context 的组件会重新渲染。它解决跨层传递问题，但不替代正常的 Props 组合和局部状态。',
+    flow: [
+      'createContext 定义共享通道和无 Provider 时的默认值。',
+      '上层组件用 Provider 提供当前主题和切换函数。',
+      '深层组件通过 useContext 读取并订阅最近的 Provider。',
+    ],
+    notes: [
+      '没有合理默认值时可使用 null，并在自定义读取函数中校验 Provider。',
+      'Provider value 每次创建新对象会触发消费者更新，性能敏感时需评估对象稳定性。',
+      '只在 Props 需要穿过很多不关心它的中间层时考虑 Context。',
+    ],
+    problem: '解决"共享数据需要跨越多层组件传递，产生 Props 逐层透传"的问题。',
+  },
+  {
+    id: 'R_8',
+    title: '自定义 Hook：复用有状态逻辑',
+    navTitle: '自定义 Hook',
+    category: '逻辑复用',
+    path: '/react/r-8/custom-hook',
+    summary: '用在线状态订阅展示自定义 Hook 的命名、组合与独立状态。',
+    demo: R08CustomHook,
+    code: R08Code,
+    language: 'javascript',
+    principle:
+      '自定义 Hook 是以 use 开头、可调用其他 Hook 的函数，用于复用状态逻辑而不是共享同一份状态。每次调用都有独立的 State 与 Effect；当多个调用订阅同一外部来源时，它们会得到一致结果，但生命周期仍由各自组件管理。',
+    flow: [
+      'useOnlineStatus 初始化浏览器当前在线状态。',
+      'Effect 订阅 online 和 offline 事件，并在卸载时清理。',
+      '状态徽标和保存按钮分别调用 Hook，复用同一套同步逻辑。',
+    ],
+    notes: [
+      '自定义 Hook 名称必须以 use 开头，才能应用 Hooks 规则和 lint 检查。',
+      'Hook 只能在 React 组件或其他 Hook 顶层调用，不能放在条件分支和循环中。',
+      '复用 Hook 逻辑不等于共享状态；共享状态应提升或使用外部状态源。',
+    ],
+    problem: '解决"多个组件需要相同的状态订阅和清理逻辑，如何避免重复实现"的问题。',
   },
 ]

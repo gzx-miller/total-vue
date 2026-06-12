@@ -25,6 +25,10 @@ const categoryDetails: Record<string, { intro: string; officialUrl: string }> = 
     intro: '工程化关注构建、测试、规范、部署和性能等协作基础，让前端项目在规模变大后仍然可维护。',
     officialUrl: 'https://vite.dev/',
   },
+  langchain: {
+    intro: 'LangChain.js 是构建 LLM 应用的开源框架，提供模型调用、提示模板、链式调用、RAG 检索增强生成等核心能力，帮助开发者快速搭建智能应用。',
+    officialUrl: 'https://js.langchain.com/',
+  },
 }
 
 const isCategoryDrawerOpen = ref(true)
@@ -63,15 +67,7 @@ const activeCategoryName = computed(() => {
 })
 
 const filteredLessons = computed(() => {
-  return lessons.filter((lesson) => {
-    if (activeKnowledge.value === 'vue') {
-      return lesson.path.startsWith('/vue')
-    }
-    if (activeKnowledge.value === 'element-plus') {
-      return lesson.path.startsWith('/element-plus')
-    }
-    return true
-  })
+  return lessons.filter((lesson) => lesson.path.startsWith(`/${activeKnowledge.value}/`))
 })
 
 const currentLesson = computed(() => {
@@ -101,6 +97,12 @@ function getCategoryDetails(id: string) {
 function formatLessonId(id: string) {
   if (id.startsWith('E_')) {
     return id.replace('E_', '🌰')
+  }
+  if (id.startsWith('L_')) {
+    return id.replace('L_', '🌰')
+  }
+  if (id.startsWith('R_')) {
+    return id.replace('R_', '🌰')
   }
   return id.replace('K_', '🌰')
 }
@@ -176,7 +178,7 @@ watch(
     </header>
 
     <div class="app-shell" :class="{ 'sidebar-expanded': isSidebarTemporarilyExpanded }">
-      <aside class="sidebar" :class="{ 'sidebar-temporarily-expanded': isSidebarTemporarilyExpanded }" aria-label="Vue3 知识点导航">
+      <aside class="sidebar" :class="{ 'sidebar-temporarily-expanded': isSidebarTemporarilyExpanded }" :aria-label="`${activeCategoryName} 知识点导航`">
         <div class="sidebar-heading">
           <button
             class="sidebar-toggle"

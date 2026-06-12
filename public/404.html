@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小松鼠举栗子</title>
+    <script>
+      // GitHub Pages SPA hack: 将当前路径写入 sessionStorage，
+      // index.html 加载后从 sessionStorage 读取并恢复路由
+      sessionStorage.redirect = location.pathname + location.search + location.hash
+    </script>
+    <meta http-equiv="refresh" content="0;url=/" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
