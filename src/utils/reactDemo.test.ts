@@ -6,6 +6,7 @@ describe('createReactDemoDocument', () => {
     const document = createReactDemoDocument('console.log("</script>")')
 
     expect(document).toContain('react@19.2.0')
+    expect(document).toContain('"react-dom":"https://esm.sh/react-dom@19.2.0?dev"')
     expect(document).toContain('react-dom@19.2.0/client')
     expect(document).toContain('type="importmap"')
     expect(document).toContain('<\\/script>')

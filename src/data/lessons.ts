@@ -103,6 +103,22 @@ import R07Context from '../demos/R07Context.vue'
 import R07Code from '../demos/react/R07Context.js?raw'
 import R08CustomHook from '../demos/R08CustomHook.vue'
 import R08Code from '../demos/react/R08CustomHook.js?raw'
+import R09RefDom from '../demos/R09RefDom.vue'
+import R09Code from '../demos/react/R09RefDom.js?raw'
+import R10Memoization from '../demos/R10Memoization.vue'
+import R10Code from '../demos/react/R10Memoization.js?raw'
+import R11DeferredValue from '../demos/R11DeferredValue.vue'
+import R11Code from '../demos/react/R11DeferredValue.js?raw'
+import R12ExternalStore from '../demos/R12ExternalStore.vue'
+import R12Code from '../demos/react/R12ExternalStore.js?raw'
+import R13Portal from '../demos/R13Portal.vue'
+import R13Code from '../demos/react/R13Portal.js?raw'
+import R14LazySuspense from '../demos/R14LazySuspense.vue'
+import R14Code from '../demos/react/R14LazySuspense.js?raw'
+import R15ErrorBoundary from '../demos/R15ErrorBoundary.vue'
+import R15Code from '../demos/react/R15ErrorBoundary.js?raw'
+import R16AccessibleId from '../demos/R16AccessibleId.vue'
+import R16Code from '../demos/react/R16AccessibleId.js?raw'
 import L01LLMCall from '../demos/L01LLMCall.vue'
 import L01Code from '../demos/L01LLMCall.vue?raw'
 import L02PromptTemplate from '../demos/L02PromptTemplate.vue'
@@ -1785,5 +1801,197 @@ export const lessons: Lesson[] = [
       '复用 Hook 逻辑不等于共享状态；共享状态应提升或使用外部状态源。',
     ],
     problem: '解决"多个组件需要相同的状态订阅和清理逻辑，如何避免重复实现"的问题。',
+  },
+  {
+    id: 'R_9',
+    title: 'useRef：DOM 引用与非渲染数据',
+    navTitle: 'Ref 与 DOM',
+    category: '命令式协作',
+    path: '/react/r-9/ref-dom',
+    summary: '用课程检索演示 useRef 如何聚焦输入框，并保存不需要触发渲染的会话计数。',
+    demo: R09RefDom,
+    code: R09Code,
+    language: 'javascript',
+    principle:
+      'useRef 在多次渲染间返回同一个可变对象。把 Ref 传给 DOM 节点后，React 会维护 current 指向对应节点，适合聚焦、滚动和媒体控制等命令式操作。修改 current 不会触发重新渲染，因此只应存放不参与界面输出的数据；凡是需要显示并随变化更新的值仍应使用 State。',
+    flow: [
+      'searchRef 关联搜索输入框，按钮通过 current 调用原生 focus。',
+      'submitCountRef 记录会话内检索次数，变化本身不请求渲染。',
+      'result State 保存需要显示的反馈，并触发界面更新。',
+    ],
+    notes: [
+      '不要在渲染过程中随意读写 ref.current，初始化除外。',
+      'DOM 操作应保持小而明确，不要绕过 React 手动维护 React 已管理的节点结构。',
+      '非受控输入可从 Ref 读取当前值，但复杂表单通常仍适合受控状态。',
+    ],
+    problem: '解决"组件如何操作 DOM，以及如何保存无需驱动渲染的可变数据"的问题。',
+  },
+  {
+    id: 'R_10',
+    title: 'memo、useMemo 与 useCallback：有依据地减少重复工作',
+    navTitle: '记忆化优化',
+    category: '性能',
+    path: '/react/r-10/memoization',
+    summary: '用课程筛选和无关外观更新演示组件、计算结果与回调引用的记忆化边界。',
+    demo: R10Memoization,
+    code: R10Code,
+    language: 'javascript',
+    principle:
+      'memo 可在 Props 未变化时跳过子组件重新渲染，useMemo 缓存计算结果，useCallback 缓存函数定义。三者都是性能优化而非正确性工具，只有重复渲染确实昂贵、依赖能够保持稳定且性能测量证实存在瓶颈时才值得使用。React Compiler 启用后还能自动完成许多记忆化工作。',
+    flow: [
+      'useMemo 只在筛选级别改变时重新计算可见课程。',
+      'useCallback 保持选择课程函数的引用稳定。',
+      'memo 让课程列表在无关外观计数变化时跳过渲染。',
+    ],
+    notes: [
+      '先用 React DevTools Profiler 定位瓶颈，再添加记忆化。',
+      '每次新建的对象或函数会让浅比较失效，依赖设计比机械包裹更重要。',
+      '组件逻辑若离开记忆化就不正确，应先修复状态和 Effect 设计。',
+    ],
+    problem: '解决"父组件频繁更新时，如何避免昂贵子树和计算做无意义重复工作"的问题。',
+  },
+  {
+    id: 'R_11',
+    title: 'useDeferredValue：延后非关键界面更新',
+    navTitle: '延迟值',
+    category: '并发渲染',
+    path: '/react/r-11/deferred-value',
+    summary: '用大列表搜索演示输入立即更新，而结果区域以较低优先级追赶最新关键词。',
+    demo: R11DeferredValue,
+    code: R11Code,
+    language: 'javascript',
+    principle:
+      'useDeferredValue 返回一个可以落后于最新值的版本，让 React 优先提交输入等紧急更新，再在后台尝试渲染较慢的内容。后台渲染可被新的输入中断，因此能改善交互响应；它不会减少网络请求，也不是固定时长的防抖。旧值与新值不一致时可以降低结果区域视觉强调，明确表示内容正在更新。',
+    flow: [
+      '受控输入同步更新 keyword，保证键入即时可见。',
+      'deferredKeyword 在后台追赶 keyword，并驱动结果筛选。',
+      '两个值不一致时用 aria-busy 和透明度提示结果暂时陈旧。',
+    ],
+    notes: [
+      '不要把控制文本输入的 State 更新放进 Transition，输入必须同步更新。',
+      'useDeferredValue 不会自动阻止请求；请求去重和防抖仍需单独设计。',
+      '只有结果渲染明显较慢时才有收益，小列表无需使用。',
+    ],
+    problem: '解决"昂贵结果区域更新时，如何让文本输入仍保持流畅"的问题。',
+  },
+  {
+    id: 'R_12',
+    title: 'useSyncExternalStore：一致地订阅外部状态',
+    navTitle: '外部 Store',
+    category: '状态集成',
+    path: '/react/r-12/external-store',
+    summary: '用独立计数 Store 演示 subscribe、getSnapshot 和多个消费者的一致更新。',
+    demo: R12ExternalStore,
+    code: R12Code,
+    language: 'javascript',
+    principle:
+      'useSyncExternalStore 是 React 读取外部可变数据源的标准接口。subscribe 注册变化监听并返回取消函数，getSnapshot 返回当前不可变快照；只要数据没有变化，快照就必须保持 Object.is 相等。React 通过这份契约在并发渲染中获得一致视图，适用于状态库、浏览器 API 和框架级缓存。',
+    flow: [
+      '外部 Store 在 React 组件之外保存快照和监听器集合。',
+      '两个视图通过同一 subscribe 与 getSnapshot 订阅 Store。',
+      'Store 替换快照并通知监听器，所有消费者得到一致结果。',
+    ],
+    notes: [
+      'getSnapshot 不应每次都创建新对象，否则会导致无限更新。',
+      'subscribe 函数最好定义在组件外，避免每次渲染重新订阅。',
+      '服务端渲染时应提供 getServerSnapshot，确保水合初始内容一致。',
+    ],
+    problem: '解决"React 如何可靠读取自身状态系统之外、会随时间变化的数据"的问题。',
+  },
+  {
+    id: 'R_13',
+    title: 'createPortal：跨 DOM 层级渲染弹窗',
+    navTitle: 'Portal',
+    category: 'DOM 协作',
+    path: '/react/r-13/portal',
+    summary: '用发布确认弹窗演示内容脱离受裁切容器渲染，同时仍属于原 React 组件树。',
+    demo: R13Portal,
+    code: R13Code,
+    language: 'javascript',
+    principle:
+      'createPortal 可把 React 子节点放到另一个 DOM 容器中，常用于弹窗、浮层和 Tooltip。Portal 只改变 DOM 放置位置，不改变 React 树中的父子关系，因此 Context 仍可读取，事件也按照 React 树冒泡。可访问弹窗还需要 dialog 语义、焦点管理和关闭策略。',
+    flow: [
+      '触发按钮位于 overflow 容器中，点击后更新 open State。',
+      'ConfirmDialog 使用 createPortal 把遮罩和弹窗渲染到 document.body。',
+      '点击遮罩或操作按钮关闭弹窗，内部点击阻止遮罩关闭。',
+    ],
+    notes: [
+      'Portal 事件按照 React 树而非 DOM 树冒泡，外层事件处理器仍可能收到事件。',
+      '生产弹窗应补充焦点陷阱、Escape 关闭和关闭后的焦点恢复。',
+      '目标 DOM 节点必须已经存在，改变目标节点会重新创建 Portal 内容。',
+    ],
+    problem: '解决"弹窗如何逃离 overflow、层叠上下文等 DOM 布局限制"的问题。',
+  },
+  {
+    id: 'R_14',
+    title: 'lazy 与 Suspense：按需加载组件代码',
+    navTitle: '懒加载',
+    category: '加载体验',
+    path: '/react/r-14/lazy-suspense',
+    summary: '用延迟出现的学习报告演示 lazy 组件首次渲染时挂起，以及 Suspense 后备界面。',
+    demo: R14LazySuspense,
+    code: R14Code,
+    language: 'javascript',
+    principle:
+      'lazy 延迟调用加载函数，直到组件第一次需要渲染；加载函数及其解析结果会被 React 缓存。组件等待代码时会挂起，最近的 Suspense 边界显示 fallback，加载完成后再切换到真实内容。实际工程通常把 lazy 与动态 import 配合，让构建工具生成独立代码块。',
+    flow: [
+      '初始页面不渲染报告组件，因此加载函数尚未运行。',
+      '点击查看报告后首次渲染 Lazy 组件，Suspense 立即显示后备状态。',
+      'Promise 解析为 default 组件后，React 用真实报告替换 fallback。',
+    ],
+    notes: [
+      'lazy 声明应放在组件外，避免每次渲染重建组件并重置状态。',
+      'Suspense 不会捕获 Effect 或普通事件处理器中的数据请求。',
+      '加载 Promise 拒绝时，错误会交给最近的错误边界。',
+    ],
+    problem: '解决"不常用的大型功能如何延后加载，并在等待期间提供稳定反馈"的问题。',
+  },
+  {
+    id: 'R_15',
+    title: 'Error Boundary：隔离渲染错误并提供降级界面',
+    navTitle: '错误边界',
+    category: '容错',
+    path: '/react/r-15/error-boundary',
+    summary: '用故障课程卡片演示错误边界如何保护页面其他区域并显示可恢复的后备内容。',
+    demo: R15ErrorBoundary,
+    code: R15Code,
+    language: 'javascript',
+    principle:
+      '错误边界捕获其子树在渲染、生命周期和构造过程中抛出的错误。static getDerivedStateFromError 用于切换后备界面，componentDidCatch 适合记录错误信息。React 目前仍需要类组件实现错误边界；边界不能捕获自身错误、普通事件处理器错误、服务端渲染错误和大多数异步回调错误。',
+    flow: [
+      '模拟按钮让课程卡片在下一次渲染中抛出错误。',
+      '错误边界捕获子树错误并渲染局部降级内容。',
+      '重试按钮清除边界失败状态，使子树再次尝试渲染。',
+    ],
+    notes: [
+      '错误边界应按功能区域布置，既避免整页崩溃，也不要细碎到难以维护。',
+      'componentDidCatch 中可接入监控服务，但不要记录敏感用户数据。',
+      '事件处理器应使用正常的 try/catch 和错误状态，而不是依赖错误边界。',
+    ],
+    problem: '解决"局部组件渲染失败时，如何避免整个 React 根节点失去界面"的问题。',
+  },
+  {
+    id: 'R_16',
+    title: 'useId：稳定连接标签与可访问性说明',
+    navTitle: '可访问 ID',
+    category: '可访问性',
+    path: '/react/r-16/accessible-id',
+    summary: '用动态课程字段演示 useId 为 label、input 和辅助说明生成稳定且唯一的关联标识。',
+    demo: R16AccessibleId,
+    code: R16Code,
+    language: 'javascript',
+    principle:
+      'useId 为组件实例生成稳定且唯一的 ID，适合连接 label 与表单控件、aria-describedby 与说明内容，并兼容服务端渲染和水合。它不是列表 Key 的来源；列表 Key 应来自数据本身，因为 Key 表示业务项目身份，而 useId 表示当前组件树中的可访问性关联。',
+    flow: [
+      '每个 CourseField 调用 useId 获得自己的稳定前缀。',
+      'label 的 htmlFor 与 input 的 id 建立可点击标签关系。',
+      'aria-describedby 连接输入框和辅助说明，新增字段也不会冲突。',
+    ],
+    notes: [
+      '不要用 useId 生成列表 Key，Key 应来自数据库 ID 等稳定业务数据。',
+      '同一组件需要多个关联 ID 时，可基于一个 useId 返回值添加后缀。',
+      '应用存在多个 React 根节点时可配置 identifierPrefix 避免跨根冲突。',
+    ],
+    problem: '解决"可复用表单组件如何生成唯一、稳定且适合水合的关联 ID"的问题。',
   },
 ]

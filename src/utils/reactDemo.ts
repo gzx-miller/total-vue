@@ -1,6 +1,7 @@
 const reactImportMap = {
   imports: {
     react: 'https://esm.sh/react@19.2.0?dev',
+    'react-dom': 'https://esm.sh/react-dom@19.2.0?dev',
     'react-dom/client': 'https://esm.sh/react-dom@19.2.0/client?dev',
   },
 }
