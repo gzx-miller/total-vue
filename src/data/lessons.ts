@@ -119,6 +119,22 @@ import R15ErrorBoundary from '../demos/R15ErrorBoundary.vue'
 import R15Code from '../demos/react/R15ErrorBoundary.js?raw'
 import R16AccessibleId from '../demos/R16AccessibleId.vue'
 import R16Code from '../demos/react/R16AccessibleId.js?raw'
+import R17EventHandler from '../demos/R17EventHandler.vue'
+import R17Code from '../demos/react/R17EventHandler.js?raw'
+import R18ConditionalRender from '../demos/R18ConditionalRender.vue'
+import R18Code from '../demos/react/R18ConditionalRender.js?raw'
+import R19Composition from '../demos/R19Composition.vue'
+import R19Code from '../demos/react/R19Composition.js?raw'
+import R20Transition from '../demos/R20Transition.vue'
+import R20Code from '../demos/react/R20Transition.js?raw'
+import R21ImperativeHandle from '../demos/R21ImperativeHandle.vue'
+import R21Code from '../demos/react/R21ImperativeHandle.js?raw'
+import R22ForwardRef from '../demos/R22ForwardRef.vue'
+import R22Code from '../demos/react/R22ForwardRef.js?raw'
+import R23StrictMode from '../demos/R23StrictMode.vue'
+import R23Code from '../demos/react/R23StrictMode.js?raw'
+import R24EffectLifecycle from '../demos/R24EffectLifecycle.vue'
+import R24Code from '../demos/react/R24EffectLifecycle.js?raw'
 import L01LLMCall from '../demos/L01LLMCall.vue'
 import L01Code from '../demos/L01LLMCall.vue?raw'
 import L02PromptTemplate from '../demos/L02PromptTemplate.vue'
@@ -1993,5 +2009,197 @@ export const lessons: Lesson[] = [
       '应用存在多个 React 根节点时可配置 identifierPrefix 避免跨根冲突。',
     ],
     problem: '解决"可复用表单组件如何生成唯一、稳定且适合水合的关联 ID"的问题。',
+  },
+  {
+    id: 'R_17',
+    title: '事件处理：合成事件与处理器模式',
+    navTitle: '事件处理',
+    category: '用户交互',
+    path: '/react/r-17/event-handler',
+    summary: '用课程搜索和表单提交演示合成事件对象、preventDefault 和事件处理器设计。',
+    demo: R17EventHandler,
+    code: R17Code,
+    language: 'javascript',
+    principle:
+      'React 使用合成事件系统统一浏览器原生事件接口。事件处理器接收合成事件对象，它拥有与原生事件相同的接口，但由 React 事件委托机制在根节点统一管理。表单提交等场景需要调用 preventDefault 阻止浏览器默认行为；事件处理器可以直接引用闭包变量，无需额外绑定。',
+    flow: [
+      '点击和输入事件通过 React 合成事件对象获取类型和目标信息。',
+      '表单提交使用 preventDefault 阻止浏览器刷新，由 React 状态驱动界面。',
+      '键盘事件可通过 event.key 过滤特定按键，如 Enter 触发搜索。',
+    ],
+    notes: [
+      'React 事件采用事件委托，所有监听器挂在根节点而非 DOM 元素本身。',
+      '合成事件对象在回调结束后会被回收复用，异步访问属性需先调用 persist 或提前提取值。',
+      '事件处理器应保持简洁，复杂逻辑可拆分为独立函数。',
+    ],
+    problem: '解决"React 如何统一处理浏览器事件，以及何时需要阻止默认行为"的问题。',
+  },
+  {
+    id: 'R_18',
+    title: '条件渲染：逻辑与、三元表达式与提前返回',
+    navTitle: '条件渲染',
+    category: '渲染模式',
+    path: '/react/r-18/conditional-render',
+    summary: '用课程列表与详情切换演示 &&、三元运算符和提前返回三种条件渲染方式。',
+    demo: R18ConditionalRender,
+    code: R18Code,
+    language: 'javascript',
+    principle:
+      'React 没有模板指令，条件渲染完全依赖 JavaScript 表达式。逻辑与 (&&) 适合"有则显示、无则不渲染"的场景；三元运算符适合二选一；提前返回适合分支后剩余逻辑较多时简化嵌套。选择哪种方式取决于可读性和具体场景，不需要固定规则。',
+    flow: [
+      '折扣区域用 && 控制显示隐藏，showDiscount 为 false 时不渲染。',
+      '课程列表与详情用三元运算符切换，选择课程后展示详情。',
+      'CourseDetail 内部使用提前返回，未传入课程时直接返回 null。',
+    ],
+    notes: [
+      '&& 左侧为 0 时会渲染数字 0，应使用三元运算符或显式布尔转换。',
+      '不要在条件渲染中使用 if/else 语句，它们不是表达式，无法嵌入 JSX。',
+      '条件分支过多时考虑拆分为独立子组件，保持每个组件职责单一。',
+    ],
+    problem: '解决"React 没有模板指令，如何用 JavaScript 表达式实现条件渲染"的问题。',
+  },
+  {
+    id: 'R_19',
+    title: '组件组合：children 与 render props 模式',
+    navTitle: '组件组合',
+    category: '组件设计',
+    path: '/react/r-19/composition',
+    summary: '用课程卡片和统计面板演示 children 插槽和 render props 两种组合方式。',
+    demo: R19Composition,
+    code: R19Code,
+    language: 'javascript',
+    principle:
+      '组件组合优先于继承是 React 的核心设计理念。children 是最简单的组合方式，父组件通过 props.children 接收子元素；render props 则让父组件通过函数类型的 prop 决定子组件的渲染内容，适合需要根据父组件状态动态生成子元素的场景。两种模式都能避免深层 Props 透传。',
+    flow: [
+      'Card 通过 children 接收按钮和文本，父组件控制内容布局。',
+      'StatsLayout 通过 renderStats 函数 prop 获取统计项，父组件决定渲染哪些数据。',
+      '两种模式都让容器关注布局和结构，内容交由调用方决定。',
+    ],
+    notes: [
+      'children 适合简单的插槽场景，render props 适合需要父组件状态参与渲染的场景。',
+      'render props 函数不要在渲染中新建，可能影响子组件 memo 效果。',
+      'Hooks 解决了大部分状态逻辑复用需求，render props 的使用频率已降低。',
+    ],
+    problem: '解决"如何让容器组件灵活接收和动态生成子内容"的问题。',
+  },
+  {
+    id: 'R_20',
+    title: 'useTransition：标记非紧急状态更新',
+    navTitle: '过渡更新',
+    category: '并发渲染',
+    path: '/react/r-20/transition',
+    summary: '用大列表搜索演示 startTransition 将筛选标记为过渡更新，保持输入流畅响应。',
+    demo: R20Transition,
+    code: R20Code,
+    language: 'javascript',
+    principle:
+      'useTransition 返回一个待决状态和 startTransition 函数。在 startTransition 中包裹的状态更新会被 React 标记为非紧急的过渡更新；如果此时有更紧急的更新（如输入框同步），React 会中断过渡更新优先处理紧急更新。它适用于由用户交互触发但结果渲染较慢的场景。',
+    flow: [
+      '输入框的值同步更新，保证键入即时可见。',
+      '列表筛选在 startTransition 中执行，被标记为可中断的过渡更新。',
+      'isPending 在过渡期间为 true，可用于展示加载指示。',
+    ],
+    notes: [
+      '控制文本输入的 setState 不要放在 startTransition 中，输入必须同步更新。',
+      'useDeferredValue 是 useTransition 的声明式替代，适合没有明确更新时机的场景。',
+      '过渡更新可被中断但不会被丢弃，React 保证最终状态一致。',
+    ],
+    problem: '解决"用户输入触发昂贵渲染时，如何保持输入流畅"的问题。',
+  },
+  {
+    id: 'R_21',
+    title: 'useImperativeHandle：限定组件暴露的命令式接口',
+    navTitle: '命令式接口',
+    category: '命令式协作',
+    path: '/react/r-21/imperative-handle',
+    summary: '用搜索框演示 useImperativeHandle 限定父组件通过 ref 能调用的方法。',
+    demo: R21ImperativeHandle,
+    code: R21Code,
+    language: 'javascript',
+    principle:
+      'useImperativeHandle 配合 forwardRef 使用，可以精确控制父组件通过 ref 能访问到的方法。默认情况下 ref 指向 DOM 节点，useImperativeHandle 将 ref 重定向为自定义对象，只暴露必要的命令式操作。这样既保持封装性，又允许父组件在特定场景下调用子组件方法。',
+    flow: [
+      'SearchInput 使用 forwardRef 接收来自父组件的 ref。',
+      'useImperativeHandle 定义 focus、clear 和 getValue 三个方法。',
+      '父组件通过 searchRef.current.focus() 等方式调用，无法直接操作内部 DOM。',
+    ],
+    notes: [
+      'useImperativeHandle 的第二个参数工厂函数应返回稳定对象，避免不必要更新。',
+      '命令式操作应作为最后手段，优先用声明式 Props 和 State 驱动界面。',
+      '与 forwardRef 搭配时，TypeScript 中需要定义 Ref 接口类型。',
+    ],
+    problem: '解决"父组件如何调用子组件方法，同时不暴露内部实现细节"的问题。',
+  },
+  {
+    id: 'R_22',
+    title: 'forwardRef：跨组件传递 Ref',
+    navTitle: '转发 Ref',
+    category: '命令式协作',
+    path: '/react/r-22/forward-ref',
+    summary: '用报名表单演示 forwardRef 让自定义输入组件将 ref 转发给内部 DOM 节点。',
+    demo: R22ForwardRef,
+    code: R22Code,
+    language: 'javascript',
+    principle:
+      'forwardRef 让组件能够将接收到的 ref 转发给子节点。默认情况下函数组件无法接收 ref 属性，因为 ref 不是普通 prop。forwardRef 包裹组件后，第二个参数接收 ref 并可传递给内部元素。它适用于需要聚焦、测量或与第三方库集成等必须直接操作 DOM 的场景。',
+    flow: [
+      'TextInput 使用 forwardRef 将 ref 转发给内部 input 元素。',
+      '父组件通过 nameRef 和 emailRef 分别引用两个输入框。',
+      '提交时通过 ref.current 获取值，重置时直接操作 DOM。',
+    ],
+    notes: [
+      'ref 转发链可以多层传递，但中间组件也需要使用 forwardRef。',
+      '与 useImperativeHandle 搭配时，可自定义 ref 暴露的内容而非整个 DOM 节点。',
+      '高阶组件转发 ref 时需注意 displayName 丢失问题。',
+    ],
+    problem: '解决"自定义组件如何让父组件获取内部 DOM 节点引用"的问题。',
+  },
+  {
+    id: 'R_23',
+    title: 'StrictMode：开发环境额外检查',
+    navTitle: '严格模式',
+    category: '开发体验',
+    path: '/react/r-23/strict-mode',
+    summary: '用 Effect 执行日志演示 StrictMode 双重调用机制如何暴露清理缺失。',
+    demo: R23StrictMode,
+    code: R23Code,
+    language: 'javascript',
+    principle:
+      'StrictMode 是开发环境的辅助工具，不渲染任何可见界面。它会让组件函数体、useState 初始化函数、useEffect 和 useMemo 等额外执行一次，帮助发现不纯的渲染、缺少清理的 Effect 和过时的 ref 用法。双重调用只在开发环境发生，生产构建不受影响。',
+    flow: [
+      '包裹在 StrictMode 中的组件的 Effect 会执行两次 setup + cleanup。',
+      '对比开启和关闭 StrictMode 时 Effect 日志的差异。',
+      '清理函数缺失或不完整的问题会在双重调用中暴露。',
+    ],
+    notes: [
+      'StrictMode 不影响生产构建，只用于开发阶段的早期问题检测。',
+      '如果 Effect 出现双重执行，说明 React 正在帮你验证清理函数是否正确。',
+      '不要为了消除双重调用而移除 StrictMode，应修复根本问题。',
+    ],
+    problem: '解决"如何在开发阶段尽早发现不纯渲染和 Effect 清理缺失"的问题。',
+  },
+  {
+    id: 'R_24',
+    title: 'useEffect 生命周期：挂载、更新与卸载的常见模式',
+    navTitle: 'Effect 生命周期',
+    category: '副作用',
+    path: '/react/r-24/effect-lifecycle',
+    summary: '用窗口尺寸、计时器和在线状态演示 Effect 的挂载、依赖更新和清理卸载模式。',
+    demo: R24EffectLifecycle,
+    code: R24Code,
+    language: 'javascript',
+    principle:
+      'Effect 在组件挂载后执行，依赖数组变化时先执行清理函数再重新执行，卸载时执行最后一次清理。空依赖数组的 Effect 只在挂载和卸载时执行；有依赖的 Effect 在依赖变化时同步外部系统；条件性 Effect 可以提前返回或用条件语句控制。',
+    flow: [
+      'WindowSize 的 Effect 只在挂载时添加 resize 监听，卸载时移除。',
+      'Timer 的 Effect 依赖 running 状态，切换时清理旧定时器再创建新的。',
+      'OnlineStatus 的 Effect 在挂载时添加网络状态监听，卸载时移除。',
+    ],
+    notes: [
+      '挂载时执行的 Effect 依赖数组为空，但不能省略数组本身。',
+      '清理函数在组件卸载和依赖变化重新执行前都会调用。',
+      '多个不相关的副作用应拆分为独立 Effect，而不是合并到一个中。',
+    ],
+    problem: '解决"Effect 在组件生命周期各阶段如何正确同步外部系统"的问题。',
   },
 ]
