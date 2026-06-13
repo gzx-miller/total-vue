@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 const lessonSource = readFileSync(new URL('./src/data/lessons.ts', import.meta.url), 'utf8')
 const lessonRoutes = Array.from(
   new Set(
-    Array.from(lessonSource.matchAll(/\bpath:\s*'(\/(?:vue|element-plus|react|langchain)\/[^']+)'/g))
+    Array.from(lessonSource.matchAll(/\bpath:\s*'(\/(?:vue|element-plus|react|langchain|nuxt)\/[^']+)'/g))
       .map((match) => match[1]),
   ),
 )
@@ -43,6 +43,7 @@ export default defineNuxtConfig({
         '/element-plus',
         '/react',
         '/langchain',
+        '/nuxt',
         '/total-vue',
         '/total-vue/vue/k-1/app-entry',
         '/vue/k-12/routing/lee',
