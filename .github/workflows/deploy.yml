@@ -41,16 +41,15 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Add SPA fallback
+      - name: Prepare GitHub Pages output
         run: |
-          cp dist/index.html dist/404.html
-          touch dist/.nojekyll
+          touch .output/public/.nojekyll
 
       - name: Publish gh-pages branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd dist
+          cd .output/public
           git init
           git checkout -b gh-pages
           git config user.name "github-actions[bot]"

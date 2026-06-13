@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
 import squirrelHero from '../assets/squirrel-chestnut-hero.png'
 import { knowledgeCategories, lessons } from '../data/lessons'
 import CodeBlock from './CodeBlock.vue'
@@ -33,7 +32,7 @@ const categoryDetails: Record<string, { intro: string; officialUrl: string }> = 
 
 const isCategoryDrawerOpen = ref(true)
 const isSidebarTemporarilyExpanded = ref(false)
-const lastKnownWidth = ref(window.innerWidth)
+const lastKnownWidth = ref(0)
 const lessonPageRef = ref<HTMLElement | null>(null)
 const popoverVisible = ref<Record<string, boolean>>({})
 const popoverPlacement = ref<Record<string, 'start' | 'center' | 'end'>>({})
@@ -60,7 +59,10 @@ function hidePopover(id: string) {
   popoverVisible.value[id] = false
 }
 
-const activeKnowledge = computed(() => String(route.meta.knowledge ?? 'vue'))
+const activeKnowledge = computed(() => {
+  const category = route.path.split('/').filter(Boolean)[0]
+  return knowledgeCategories.some((item) => item.id === category) ? category : 'vue'
+})
 
 const activeCategoryName = computed(() => {
   return knowledgeCategories.find((category) => category.id === activeKnowledge.value)?.name ?? activeKnowledge.value
@@ -71,11 +73,11 @@ const filteredLessons = computed(() => {
 })
 
 const currentLesson = computed(() => {
-  if (route.name === 'K_12_DYNAMIC_MEMBER') {
+  if (route.path.startsWith('/vue/k-12/routing/')) {
     return lessons.find((lesson) => lesson.id === 'K_12') ?? lessons[0]
   }
 
-  return lessons.find((lesson) => lesson.id === route.name) ?? lessons[0]
+  return lessons.find((lesson) => lesson.path === route.path) ?? lessons[0]
 })
 
 const nextLesson = computed(() => {
@@ -120,6 +122,7 @@ function handleResize() {
 }
 
 onMounted(() => {
+  lastKnownWidth.value = window.innerWidth
   window.addEventListener('resize', handleResize)
 })
 
@@ -134,18 +137,22 @@ watch(
     lessonPageRef.value?.scrollTo({ top: 0, left: 0 })
   },
 )
+
+useHead(() => ({
+  title: `${currentLesson.value.navTitle} - 小松鼠举栗子`,
+}))
 </script>
 
 <template>
   <div class="app-frame">
     <header class="top-nav">
-      <RouterLink class="top-brand" to="/vue" aria-label="回到 Vue3 学习首页">
+      <NuxtLink class="top-brand" to="/vue" aria-label="回到 Vue3 学习首页">
         <img class="brand-avatar" :src="squirrelHero" alt="小松鼠举着栗子" />
         <div>
           <strong>小松鼠举栗子</strong>
           <span >gzx_miller@foxmail.com</span>
         </div>
-      </RouterLink>
+      </NuxtLink>
 
       <nav class="knowledge-tabs" aria-label="知识类别导航">
         <div
@@ -153,7 +160,7 @@ watch(
           :key="item.id"
           class="knowledge-tab-wrapper"
         >
-          <RouterLink
+          <NuxtLink
             :to="item.status === 'ready' ? item.path : '/vue'"
             class="knowledge-tab"
             :class="{ active: item.id === activeKnowledge, planned: item.status === 'planned' }"
@@ -163,7 +170,7 @@ watch(
           >
             <span>{{ item.name }}</span>
             <small v-if="item.status === 'planned'">规划中</small>
-          </RouterLink>
+          </NuxtLink>
           <Transition name="fade">
             <div
               v-if="popoverVisible[item.id]"
@@ -194,7 +201,7 @@ watch(
         </div>
 
         <nav class="lesson-nav">
-          <RouterLink
+          <NuxtLink
             v-for="lesson in filteredLessons"
             :key="lesson.id"
             :to="lesson.path"
@@ -205,7 +212,7 @@ watch(
           >
             <span>{{ formatLessonId(lesson.id) }}</span>
             <strong>{{ lesson.navTitle }}</strong>
-          </RouterLink>
+          </NuxtLink>
         </nav>
       </aside>
 
@@ -226,7 +233,12 @@ watch(
 
         <section class="lesson-section">
           <h2>案例演示</h2>
-          <component :is="currentLesson.demo" />
+          <ClientOnly>
+            <component :is="currentLesson.demo" />
+            <template #fallback>
+              <div class="demo-card">案例交互加载中...</div>
+            </template>
+          </ClientOnly>
         </section>
 
         <section class="lesson-section">
@@ -267,10 +279,10 @@ watch(
             >
               {{ getCategoryDetails(activeKnowledge).intro?.includes('Element') ? 'Element Plus 官网' : `${activeKnowledge.charAt(0).toUpperCase() + activeKnowledge.slice(1)} 官网` }} →
             </a>
-            <RouterLink class="next-lesson-link" :to="nextLesson.path">
+            <NuxtLink class="next-lesson-link" :to="nextLesson.path">
               <span>下一颗</span>
               <strong>{{ formatLessonId(nextLesson.id) }} {{ nextLesson.navTitle }}</strong>
-            </RouterLink>
+            </NuxtLink>
           </div>
         </nav>
       </main>

@@ -8,8 +8,8 @@
 
 - Vue 3
 - TypeScript
-- Vite
-- Vue Router
+- Nuxt 4
+- Nuxt 文件路由
 - Pinia
 - Vitest
 
@@ -17,7 +17,7 @@
 
 - UI 文案和章节说明使用中文。
 - 文件名、变量名、类型名使用英文。
-- 路由必须保留知识类别层级；Vue3 分类使用 `/vue/...`。
+- 路由必须保留知识类别层级；Vue3 分类使用 `/vue/...`，并确保新增课程可被 `nuxt generate` 预渲染。
 - 视觉风格应贴合秋日森林、红橙枫叶、暖光、小松鼠抱栗子的参考图气质。
 - 每个 `🌰` 案例只覆盖一个主要知识点，避免重复讲同一概念。
 - 左侧导航使用简洁短标题，正文标题和说明可以更详实。
@@ -40,6 +40,8 @@ pnpm type-check
 pnpm test
 pnpm build
 ```
+
+`pnpm build` 的静态产物位于 `.output/public`，用于 GitHub Pages 部署。
 
 ## 提交策略
 
