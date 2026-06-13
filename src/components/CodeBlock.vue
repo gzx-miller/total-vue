@@ -8,6 +8,7 @@ import { computed } from 'vue'
 
 hljs.registerLanguage('css', css)
 hljs.registerLanguage('javascript', javascript)
+hljs.registerLanguage('jsx', javascript)
 hljs.registerLanguage('typescript', typescript)
 hljs.registerLanguage('vue', xml)
 hljs.registerLanguage('xml', xml)

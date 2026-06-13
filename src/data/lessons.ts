@@ -88,53 +88,53 @@ import E15Code from '../demos/E15Drawer.vue?raw'
 import E16Steps from '../demos/E16Steps.vue'
 import E16Code from '../demos/E16Steps.vue?raw'
 import R01ComponentProps from '../demos/R01ComponentProps.vue'
-import R01Code from '../demos/react/R01ComponentProps.js?raw'
+import R01Code from '../demos/react-jsx/R01ComponentProps.jsx?raw'
 import R02StateUpdates from '../demos/R02StateUpdates.vue'
-import R02Code from '../demos/react/R02StateUpdates.js?raw'
+import R02Code from '../demos/react-jsx/R02StateUpdates.jsx?raw'
 import R03ListsKeys from '../demos/R03ListsKeys.vue'
-import R03Code from '../demos/react/R03ListsKeys.js?raw'
+import R03Code from '../demos/react-jsx/R03ListsKeys.jsx?raw'
 import R04ControlledForm from '../demos/R04ControlledForm.vue'
-import R04Code from '../demos/react/R04ControlledForm.js?raw'
+import R04Code from '../demos/react-jsx/R04ControlledForm.jsx?raw'
 import R05EffectSync from '../demos/R05EffectSync.vue'
-import R05Code from '../demos/react/R05EffectSync.js?raw'
+import R05Code from '../demos/react-jsx/R05EffectSync.jsx?raw'
 import R06Reducer from '../demos/R06Reducer.vue'
-import R06Code from '../demos/react/R06Reducer.js?raw'
+import R06Code from '../demos/react-jsx/R06Reducer.jsx?raw'
 import R07Context from '../demos/R07Context.vue'
-import R07Code from '../demos/react/R07Context.js?raw'
+import R07Code from '../demos/react-jsx/R07Context.jsx?raw'
 import R08CustomHook from '../demos/R08CustomHook.vue'
-import R08Code from '../demos/react/R08CustomHook.js?raw'
+import R08Code from '../demos/react-jsx/R08CustomHook.jsx?raw'
 import R09RefDom from '../demos/R09RefDom.vue'
-import R09Code from '../demos/react/R09RefDom.js?raw'
+import R09Code from '../demos/react-jsx/R09RefDom.jsx?raw'
 import R10Memoization from '../demos/R10Memoization.vue'
-import R10Code from '../demos/react/R10Memoization.js?raw'
+import R10Code from '../demos/react-jsx/R10Memoization.jsx?raw'
 import R11DeferredValue from '../demos/R11DeferredValue.vue'
-import R11Code from '../demos/react/R11DeferredValue.js?raw'
+import R11Code from '../demos/react-jsx/R11DeferredValue.jsx?raw'
 import R12ExternalStore from '../demos/R12ExternalStore.vue'
-import R12Code from '../demos/react/R12ExternalStore.js?raw'
+import R12Code from '../demos/react-jsx/R12ExternalStore.jsx?raw'
 import R13Portal from '../demos/R13Portal.vue'
-import R13Code from '../demos/react/R13Portal.js?raw'
+import R13Code from '../demos/react-jsx/R13Portal.jsx?raw'
 import R14LazySuspense from '../demos/R14LazySuspense.vue'
-import R14Code from '../demos/react/R14LazySuspense.js?raw'
+import R14Code from '../demos/react-jsx/R14LazySuspense.jsx?raw'
 import R15ErrorBoundary from '../demos/R15ErrorBoundary.vue'
-import R15Code from '../demos/react/R15ErrorBoundary.js?raw'
+import R15Code from '../demos/react-jsx/R15ErrorBoundary.jsx?raw'
 import R16AccessibleId from '../demos/R16AccessibleId.vue'
-import R16Code from '../demos/react/R16AccessibleId.js?raw'
+import R16Code from '../demos/react-jsx/R16AccessibleId.jsx?raw'
 import R17EventHandler from '../demos/R17EventHandler.vue'
-import R17Code from '../demos/react/R17EventHandler.js?raw'
+import R17Code from '../demos/react-jsx/R17EventHandler.jsx?raw'
 import R18ConditionalRender from '../demos/R18ConditionalRender.vue'
-import R18Code from '../demos/react/R18ConditionalRender.js?raw'
+import R18Code from '../demos/react-jsx/R18ConditionalRender.jsx?raw'
 import R19Composition from '../demos/R19Composition.vue'
-import R19Code from '../demos/react/R19Composition.js?raw'
+import R19Code from '../demos/react-jsx/R19Composition.jsx?raw'
 import R20Transition from '../demos/R20Transition.vue'
-import R20Code from '../demos/react/R20Transition.js?raw'
+import R20Code from '../demos/react-jsx/R20Transition.jsx?raw'
 import R21ImperativeHandle from '../demos/R21ImperativeHandle.vue'
-import R21Code from '../demos/react/R21ImperativeHandle.js?raw'
+import R21Code from '../demos/react-jsx/R21ImperativeHandle.jsx?raw'
 import R22ForwardRef from '../demos/R22ForwardRef.vue'
-import R22Code from '../demos/react/R22ForwardRef.js?raw'
+import R22Code from '../demos/react-jsx/R22ForwardRef.jsx?raw'
 import R23StrictMode from '../demos/R23StrictMode.vue'
-import R23Code from '../demos/react/R23StrictMode.js?raw'
+import R23Code from '../demos/react-jsx/R23StrictMode.jsx?raw'
 import R24EffectLifecycle from '../demos/R24EffectLifecycle.vue'
-import R24Code from '../demos/react/R24EffectLifecycle.js?raw'
+import R24Code from '../demos/react-jsx/R24EffectLifecycle.jsx?raw'
 import L01LLMCall from '../demos/L01LLMCall.vue'
 import L01Code from '../demos/L01LLMCall.vue?raw'
 import L02PromptTemplate from '../demos/L02PromptTemplate.vue'
@@ -1635,7 +1635,7 @@ export const lessons: Lesson[] = [
     summary: '用课程卡片理解 React 根节点挂载、函数组件组合、单向数据流和只读 Props。',
     demo: R01ComponentProps,
     code: R01Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'React 组件是返回界面描述的 JavaScript 函数。createRoot 为指定 DOM 容器创建 React 根节点，render 再把组件树交给 React 管理。父组件通过 Props 向子组件传值，子组件应把 Props 视为只读输入；需要变化的数据应提升为状态，而不是直接修改 Props。',
     flow: [
@@ -1646,7 +1646,7 @@ export const lessons: Lesson[] = [
     notes: [
       '组件名称必须以大写字母开头，否则 React 会把它当作原生 HTML 标签。',
       'Props 是组件调用时的输入快照，不要在子组件中直接修改。',
-      '本案例故意使用 React.createElement 而非 JSX，以便通过普通 JavaScript 模块直接运行。',
+      '展示代码使用常规 JSX 语法；运行环境通过浏览器 ES Module 直接加载，由 iframe 沙箱执行。',
     ],
     problem: '解决"React 应用如何挂载，以及如何用组件和 Props 拆分可复用界面"的问题。',
   },
@@ -1659,7 +1659,7 @@ export const lessons: Lesson[] = [
     summary: '用购物车数量调整演示 useState、函数式更新和数组对象的不可变替换。',
     demo: R02StateUpdates,
     code: R02Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'useState 为组件保存跨渲染的状态快照。调用 setter 会请求下一次渲染，而不会立即改写当前变量。对象和数组状态应创建新引用；React 使用 Object.is 比较新旧状态，原地修改既破坏状态快照，也可能让更新被跳过。',
     flow: [
@@ -1683,7 +1683,7 @@ export const lessons: Lesson[] = [
     summary: '用课程检索展示列表映射、稳定 Key，以及在渲染阶段计算筛选结果。',
     demo: R03ListsKeys,
     code: R03Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'React 使用 key 区分同级列表项在多次渲染间的身份。稳定的业务 ID 能帮助 React 正确复用节点并保留对应状态；数组索引在插入、删除或排序时会改变身份。能从 Props 或 State 得到的数据应在渲染阶段直接计算，避免冗余状态。',
     flow: [
@@ -1707,7 +1707,7 @@ export const lessons: Lesson[] = [
     summary: '用训练营报名表展示 value、onChange、表单提交和即时校验。',
     demo: R04ControlledForm,
     code: R04Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       '受控表单由 React State 作为输入值的唯一来源。value 决定界面显示内容，onChange 把用户输入写回 State，提交处理器通过 preventDefault 接管浏览器默认提交。表单对象更新时应保留未变化字段。',
     flow: [
@@ -1731,7 +1731,7 @@ export const lessons: Lesson[] = [
     summary: '用跨时区时钟说明 Effect 的适用边界、依赖数组与清理函数。',
     demo: R05EffectSync,
     code: R05Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'Effect 用于让组件与 React 之外的系统同步，例如定时器、浏览器事件、网络连接或第三方组件。React 在提交界面后运行 Effect，并在重新运行或卸载前调用清理函数。纯粹的数据转换不属于 Effect，应留在渲染阶段。',
     flow: [
@@ -1755,7 +1755,7 @@ export const lessons: Lesson[] = [
     summary: '用成员入组流程展示 reducer、action 和可预测的状态转换。',
     demo: R06Reducer,
     code: R06Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'useReducer 把状态转换从事件处理器集中到纯 reducer 函数。事件通过 dispatch 描述发生了什么，reducer 根据当前状态和 action 返回下一状态。它适合字段关联较多、更新路径复杂或需要审计状态变化的场景。',
     flow: [
@@ -1779,7 +1779,7 @@ export const lessons: Lesson[] = [
     summary: '用工作台主题演示 createContext、Provider 和深层组件订阅。',
     demo: R07Context,
     code: R07Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'Context 让组件读取上层最近 Provider 提供的值，适合主题、当前用户、地区等树级共享信息。Context 值变化时，读取该 Context 的组件会重新渲染。它解决跨层传递问题，但不替代正常的 Props 组合和局部状态。',
     flow: [
@@ -1803,7 +1803,7 @@ export const lessons: Lesson[] = [
     summary: '用在线状态订阅展示自定义 Hook 的命名、组合与独立状态。',
     demo: R08CustomHook,
     code: R08Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       '自定义 Hook 是以 use 开头、可调用其他 Hook 的函数，用于复用状态逻辑而不是共享同一份状态。每次调用都有独立的 State 与 Effect；当多个调用订阅同一外部来源时，它们会得到一致结果，但生命周期仍由各自组件管理。',
     flow: [
@@ -1827,7 +1827,7 @@ export const lessons: Lesson[] = [
     summary: '用课程检索演示 useRef 如何聚焦输入框，并保存不需要触发渲染的会话计数。',
     demo: R09RefDom,
     code: R09Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'useRef 在多次渲染间返回同一个可变对象。把 Ref 传给 DOM 节点后，React 会维护 current 指向对应节点，适合聚焦、滚动和媒体控制等命令式操作。修改 current 不会触发重新渲染，因此只应存放不参与界面输出的数据；凡是需要显示并随变化更新的值仍应使用 State。',
     flow: [
@@ -1851,7 +1851,7 @@ export const lessons: Lesson[] = [
     summary: '用课程筛选和无关外观更新演示组件、计算结果与回调引用的记忆化边界。',
     demo: R10Memoization,
     code: R10Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'memo 可在 Props 未变化时跳过子组件重新渲染，useMemo 缓存计算结果，useCallback 缓存函数定义。三者都是性能优化而非正确性工具，只有重复渲染确实昂贵、依赖能够保持稳定且性能测量证实存在瓶颈时才值得使用。React Compiler 启用后还能自动完成许多记忆化工作。',
     flow: [
@@ -1875,7 +1875,7 @@ export const lessons: Lesson[] = [
     summary: '用大列表搜索演示输入立即更新，而结果区域以较低优先级追赶最新关键词。',
     demo: R11DeferredValue,
     code: R11Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'useDeferredValue 返回一个可以落后于最新值的版本，让 React 优先提交输入等紧急更新，再在后台尝试渲染较慢的内容。后台渲染可被新的输入中断，因此能改善交互响应；它不会减少网络请求，也不是固定时长的防抖。旧值与新值不一致时可以降低结果区域视觉强调，明确表示内容正在更新。',
     flow: [
@@ -1899,7 +1899,7 @@ export const lessons: Lesson[] = [
     summary: '用独立计数 Store 演示 subscribe、getSnapshot 和多个消费者的一致更新。',
     demo: R12ExternalStore,
     code: R12Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'useSyncExternalStore 是 React 读取外部可变数据源的标准接口。subscribe 注册变化监听并返回取消函数，getSnapshot 返回当前不可变快照；只要数据没有变化，快照就必须保持 Object.is 相等。React 通过这份契约在并发渲染中获得一致视图，适用于状态库、浏览器 API 和框架级缓存。',
     flow: [
@@ -1923,7 +1923,7 @@ export const lessons: Lesson[] = [
     summary: '用发布确认弹窗演示内容脱离受裁切容器渲染，同时仍属于原 React 组件树。',
     demo: R13Portal,
     code: R13Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'createPortal 可把 React 子节点放到另一个 DOM 容器中，常用于弹窗、浮层和 Tooltip。Portal 只改变 DOM 放置位置，不改变 React 树中的父子关系，因此 Context 仍可读取，事件也按照 React 树冒泡。可访问弹窗还需要 dialog 语义、焦点管理和关闭策略。',
     flow: [
@@ -1947,7 +1947,7 @@ export const lessons: Lesson[] = [
     summary: '用延迟出现的学习报告演示 lazy 组件首次渲染时挂起，以及 Suspense 后备界面。',
     demo: R14LazySuspense,
     code: R14Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'lazy 延迟调用加载函数，直到组件第一次需要渲染；加载函数及其解析结果会被 React 缓存。组件等待代码时会挂起，最近的 Suspense 边界显示 fallback，加载完成后再切换到真实内容。实际工程通常把 lazy 与动态 import 配合，让构建工具生成独立代码块。',
     flow: [
@@ -1971,7 +1971,7 @@ export const lessons: Lesson[] = [
     summary: '用故障课程卡片演示错误边界如何保护页面其他区域并显示可恢复的后备内容。',
     demo: R15ErrorBoundary,
     code: R15Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       '错误边界捕获其子树在渲染、生命周期和构造过程中抛出的错误。static getDerivedStateFromError 用于切换后备界面，componentDidCatch 适合记录错误信息。React 目前仍需要类组件实现错误边界；边界不能捕获自身错误、普通事件处理器错误、服务端渲染错误和大多数异步回调错误。',
     flow: [
@@ -1995,7 +1995,7 @@ export const lessons: Lesson[] = [
     summary: '用动态课程字段演示 useId 为 label、input 和辅助说明生成稳定且唯一的关联标识。',
     demo: R16AccessibleId,
     code: R16Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'useId 为组件实例生成稳定且唯一的 ID，适合连接 label 与表单控件、aria-describedby 与说明内容，并兼容服务端渲染和水合。它不是列表 Key 的来源；列表 Key 应来自数据本身，因为 Key 表示业务项目身份，而 useId 表示当前组件树中的可访问性关联。',
     flow: [
@@ -2019,7 +2019,7 @@ export const lessons: Lesson[] = [
     summary: '用课程搜索和表单提交演示合成事件对象、preventDefault 和事件处理器设计。',
     demo: R17EventHandler,
     code: R17Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'React 使用合成事件系统统一浏览器原生事件接口。事件处理器接收合成事件对象，它拥有与原生事件相同的接口，但由 React 事件委托机制在根节点统一管理。表单提交等场景需要调用 preventDefault 阻止浏览器默认行为；事件处理器可以直接引用闭包变量，无需额外绑定。',
     flow: [
@@ -2043,7 +2043,7 @@ export const lessons: Lesson[] = [
     summary: '用课程列表与详情切换演示 &&、三元运算符和提前返回三种条件渲染方式。',
     demo: R18ConditionalRender,
     code: R18Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'React 没有模板指令，条件渲染完全依赖 JavaScript 表达式。逻辑与 (&&) 适合"有则显示、无则不渲染"的场景；三元运算符适合二选一；提前返回适合分支后剩余逻辑较多时简化嵌套。选择哪种方式取决于可读性和具体场景，不需要固定规则。',
     flow: [
@@ -2067,7 +2067,7 @@ export const lessons: Lesson[] = [
     summary: '用课程卡片和统计面板演示 children 插槽和 render props 两种组合方式。',
     demo: R19Composition,
     code: R19Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       '组件组合优先于继承是 React 的核心设计理念。children 是最简单的组合方式，父组件通过 props.children 接收子元素；render props 则让父组件通过函数类型的 prop 决定子组件的渲染内容，适合需要根据父组件状态动态生成子元素的场景。两种模式都能避免深层 Props 透传。',
     flow: [
@@ -2091,7 +2091,7 @@ export const lessons: Lesson[] = [
     summary: '用大列表搜索演示 startTransition 将筛选标记为过渡更新，保持输入流畅响应。',
     demo: R20Transition,
     code: R20Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'useTransition 返回一个待决状态和 startTransition 函数。在 startTransition 中包裹的状态更新会被 React 标记为非紧急的过渡更新；如果此时有更紧急的更新（如输入框同步），React 会中断过渡更新优先处理紧急更新。它适用于由用户交互触发但结果渲染较慢的场景。',
     flow: [
@@ -2115,7 +2115,7 @@ export const lessons: Lesson[] = [
     summary: '用搜索框演示 useImperativeHandle 限定父组件通过 ref 能调用的方法。',
     demo: R21ImperativeHandle,
     code: R21Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'useImperativeHandle 配合 forwardRef 使用，可以精确控制父组件通过 ref 能访问到的方法。默认情况下 ref 指向 DOM 节点，useImperativeHandle 将 ref 重定向为自定义对象，只暴露必要的命令式操作。这样既保持封装性，又允许父组件在特定场景下调用子组件方法。',
     flow: [
@@ -2139,7 +2139,7 @@ export const lessons: Lesson[] = [
     summary: '用报名表单演示 forwardRef 让自定义输入组件将 ref 转发给内部 DOM 节点。',
     demo: R22ForwardRef,
     code: R22Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'forwardRef 让组件能够将接收到的 ref 转发给子节点。默认情况下函数组件无法接收 ref 属性，因为 ref 不是普通 prop。forwardRef 包裹组件后，第二个参数接收 ref 并可传递给内部元素。它适用于需要聚焦、测量或与第三方库集成等必须直接操作 DOM 的场景。',
     flow: [
@@ -2163,7 +2163,7 @@ export const lessons: Lesson[] = [
     summary: '用 Effect 执行日志演示 StrictMode 双重调用机制如何暴露清理缺失。',
     demo: R23StrictMode,
     code: R23Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'StrictMode 是开发环境的辅助工具，不渲染任何可见界面。它会让组件函数体、useState 初始化函数、useEffect 和 useMemo 等额外执行一次，帮助发现不纯的渲染、缺少清理的 Effect 和过时的 ref 用法。双重调用只在开发环境发生，生产构建不受影响。',
     flow: [
@@ -2187,7 +2187,7 @@ export const lessons: Lesson[] = [
     summary: '用窗口尺寸、计时器和在线状态演示 Effect 的挂载、依赖更新和清理卸载模式。',
     demo: R24EffectLifecycle,
     code: R24Code,
-    language: 'javascript',
+    language: 'jsx',
     principle:
       'Effect 在组件挂载后执行，依赖数组变化时先执行清理函数再重新执行，卸载时执行最后一次清理。空依赖数组的 Effect 只在挂载和卸载时执行；有依赖的 Effect 在依赖变化时同步外部系统；条件性 Effect 可以提前返回或用条件语句控制。',
     flow: [
