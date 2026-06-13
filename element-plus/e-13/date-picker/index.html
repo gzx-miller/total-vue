@@ -1,0 +1,104 @@
+<!DOCTYPE html><html  lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>日期选择 - 小松鼠举栗子</title><link rel="stylesheet" href="/_nuxt/entry.DGk2CtA3.css" crossorigin><link rel="preload" as="fetch" crossorigin="anonymous" href="/element-plus/e-13/date-picker/_payload.json?4d804e73-bb0e-4d3a-8bad-846e2808eb1d"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/D2KsaNuE.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/BXqIUP_V.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/RtG6o95J.js"><script type="module" src="/_nuxt/D2KsaNuE.js" crossorigin></script><link rel="prefetch" as="image" type="image/png" href="/_nuxt/squirrel-chestnut-hero.CLcwUZdR.png"><meta name="description" content="小松鼠举栗子中文前端知识案例库"><link rel="icon" type="image/svg+xml" href="/favicon.svg"></head><body><div id="__nuxt"><div class="app-frame"><header class="top-nav"><a href="/vue" class="top-brand" aria-label="回到 Vue3 学习首页"><img class="brand-avatar" src="/_nuxt/squirrel-chestnut-hero.CLcwUZdR.png" alt="小松鼠举着栗子"><div><strong>小松鼠举栗子</strong><span>gzx_miller@foxmail.com</span></div></a><nav class="knowledge-tabs" aria-label="知识类别导航"><!--[--><div class="knowledge-tab-wrapper"><a href="/vue" class="knowledge-tab" aria-disabled="false"><span>Vue3</span><!----></a><!----></div><div class="knowledge-tab-wrapper"><a href="/element-plus" class="knowledge-tab active" aria-disabled="false"><span>Element Plus</span><!----></a><!----></div><div class="knowledge-tab-wrapper"><a href="/vue" class="knowledge-tab planned" aria-disabled="true"><span>TypeScript</span><small>规划中</small></a><!----></div><div class="knowledge-tab-wrapper"><a href="/react" class="knowledge-tab" aria-disabled="false"><span>React</span><!----></a><!----></div><div class="knowledge-tab-wrapper"><a href="/vue" class="knowledge-tab planned" aria-disabled="true"><span>工程化</span><small>规划中</small></a><!----></div><div class="knowledge-tab-wrapper"><a href="/langchain" class="knowledge-tab" aria-disabled="false"><span>LangChain</span><!----></a><!----></div><div class="knowledge-tab-wrapper"><a href="/nuxt" class="knowledge-tab" aria-disabled="false"><span>Nuxt</span><!----></a><!----></div><!--]--></nav></header><div class="app-shell"><aside class="sidebar" aria-label="Element Plus 知识点导航"><div class="sidebar-heading"><button class="sidebar-toggle" aria-label="展开侧边栏"><span class="toggle-icon" aria-hidden="true"></span><!----></button></div><nav class="lesson-nav"><!--[--><a href="/element-plus/e-1/button" class="lesson-link" aria-label="🌰1 按钮" title="按钮"><span>🌰1</span><strong>按钮</strong></a><a href="/element-plus/e-2/form" class="lesson-link" aria-label="🌰2 表单" title="表单"><span>🌰2</span><strong>表单</strong></a><a href="/element-plus/e-3/table" class="lesson-link" aria-label="🌰3 表格" title="表格"><span>🌰3</span><strong>表格</strong></a><a href="/element-plus/e-4/dialog" class="lesson-link" aria-label="🌰4 对话框" title="对话框"><span>🌰4</span><strong>对话框</strong></a><a href="/element-plus/e-5/message" class="lesson-link" aria-label="🌰5 消息提示" title="消息提示"><span>🌰5</span><strong>消息提示</strong></a><a href="/element-plus/e-6/popover" class="lesson-link" aria-label="🌰6 气泡卡片" title="气泡卡片"><span>🌰6</span><strong>气泡卡片</strong></a><a href="/element-plus/e-7/dropdown" class="lesson-link" aria-label="🌰7 下拉菜单" title="下拉菜单"><span>🌰7</span><strong>下拉菜单</strong></a><a href="/element-plus/e-8/tabs" class="lesson-link" aria-label="🌰8 标签页" title="标签页"><span>🌰8</span><strong>标签页</strong></a><a href="/element-plus/e-9/pagination" class="lesson-link" aria-label="🌰9 分页" title="分页"><span>🌰9</span><strong>分页</strong></a><a href="/element-plus/e-10/upload" class="lesson-link" aria-label="🌰10 文件上传" title="文件上传"><span>🌰10</span><strong>文件上传</strong></a><a href="/element-plus/e-11/cascader" class="lesson-link" aria-label="🌰11 级联选择" title="级联选择"><span>🌰11</span><strong>级联选择</strong></a><a href="/element-plus/e-12/tooltip" class="lesson-link" aria-label="🌰12 工具提示" title="工具提示"><span>🌰12</span><strong>工具提示</strong></a><a aria-current="page" href="/element-plus/e-13/date-picker" class="router-link-active router-link-exact-active lesson-link active" aria-label="🌰13 日期选择" title="日期选择"><span>🌰13</span><strong>日期选择</strong></a><a href="/element-plus/e-14/tree" class="lesson-link" aria-label="🌰14 树形控件" title="树形控件"><span>🌰14</span><strong>树形控件</strong></a><a href="/element-plus/e-15/drawer" class="lesson-link" aria-label="🌰15 抽屉" title="抽屉"><span>🌰15</span><strong>抽屉</strong></a><a href="/element-plus/e-16/steps" class="lesson-link" aria-label="🌰16 步骤条" title="步骤条"><span>🌰16</span><strong>步骤条</strong></a><!--]--></nav></aside><main class="lesson-page"><header class="lesson-header"><div class="lesson-copy"><p class="eyebrow">🌰13 · 表单组件</p><h1>日期选择：DatePicker 范围与快捷选项</h1><p>用运营报表筛选演示 ElDatePicker 的日期范围、快捷周期、格式化和禁用日期。</p></div></header><section class="lesson-section"><h2>案例演示</h2><!--[--><div class="demo-card">案例交互加载中...</div><!--]--></section><section class="lesson-section"><h2>关键代码</h2><pre class="code-block"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">setup</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ts&quot;</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">import</span> { computed, ref } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span>
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">ElDatePicker</span>, <span class="hljs-title class_">ElTag</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;element-plus&#x27;</span>
+
+<span class="hljs-keyword">const</span> dateRange = ref&lt;[string, string] | <span class="hljs-literal">null</span>&gt;(<span class="hljs-literal">null</span>)
+
+<span class="hljs-keyword">const</span> shortcuts = [
+  {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;最近 7 天&#x27;</span>,
+    <span class="hljs-attr">value</span>: <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-keyword">const</span> end = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()
+      <span class="hljs-keyword">const</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()
+      start.<span class="hljs-title function_">setDate</span>(start.<span class="hljs-title function_">getDate</span>() - <span class="hljs-number">6</span>)
+      <span class="hljs-keyword">return</span> [start, end]
+    },
+  },
+  {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;最近 30 天&#x27;</span>,
+    <span class="hljs-attr">value</span>: <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-keyword">const</span> end = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()
+      <span class="hljs-keyword">const</span> start = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()
+      start.<span class="hljs-title function_">setDate</span>(start.<span class="hljs-title function_">getDate</span>() - <span class="hljs-number">29</span>)
+      <span class="hljs-keyword">return</span> [start, end]
+    },
+  },
+]
+
+<span class="hljs-keyword">const</span> reportDays = <span class="hljs-title function_">computed</span>(<span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">if</span> (!dateRange.<span class="hljs-property">value</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+  <span class="hljs-keyword">const</span> [start, end] = dateRange.<span class="hljs-property">value</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(end).<span class="hljs-title function_">getTime</span>() - <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(start).<span class="hljs-title function_">getTime</span>()) / <span class="hljs-number">86_400_000</span>) + <span class="hljs-number">1</span>
+})
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">disableFuture</span>(<span class="hljs-params">date: <span class="hljs-built_in">Date</span></span>) {
+  <span class="hljs-keyword">return</span> date.<span class="hljs-title function_">getTime</span>() &gt; <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>()
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;demo-card date-demo&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;demo-kicker&quot;</span>&gt;</span>运营报表筛选<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>选择统计周期<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ElDatePicker</span>
+      <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;dateRange&quot;</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;daterange&quot;</span>
+      <span class="hljs-attr">range-separator</span>=<span class="hljs-string">&quot;至&quot;</span>
+      <span class="hljs-attr">start-placeholder</span>=<span class="hljs-string">&quot;开始日期&quot;</span>
+      <span class="hljs-attr">end-placeholder</span>=<span class="hljs-string">&quot;结束日期&quot;</span>
+      <span class="hljs-attr">value-format</span>=<span class="hljs-string">&quot;YYYY-MM-DD&quot;</span>
+      <span class="hljs-attr">:shortcuts</span>=<span class="hljs-string">&quot;shortcuts&quot;</span>
+      <span class="hljs-attr">:disabled-date</span>=<span class="hljs-string">&quot;disableFuture&quot;</span>
+      <span class="hljs-attr">clearable</span>
+    /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;report-summary&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>当前统计范围<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ElTag</span> <span class="hljs-attr">:type</span>=<span class="hljs-string">&quot;dateRange ? &#x27;success&#x27; : &#x27;info&#x27;&quot;</span>&gt;</span>
+        {{ dateRange ? `${reportDays} 天` : &#x27;尚未选择&#x27; }}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ElTag</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>未来日期不可选，常用周期通过 shortcuts 一键填充。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="language-css">
+<span class="hljs-selector-class">.date-demo</span> {
+  <span class="hljs-attribute">display</span>: grid;
+  <span class="hljs-attribute">gap</span>: <span class="hljs-number">14px</span>;
+}
+
+<span class="hljs-selector-class">.date-demo</span> <span class="hljs-selector-tag">h3</span>,
+<span class="hljs-selector-class">.date-demo</span> <span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-class">.demo-kicker</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#8f2f18</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>;
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;
+}
+
+<span class="hljs-selector-class">.report-summary</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">justify-content</span>: space-between;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#efc48d</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">7px</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-number">#fffaf2</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">12px</span>;
+}
+
+<span class="hljs-selector-class">.date-demo</span> &gt; <span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#7c563f</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">13px</span>;
+}
+
+:<span class="hljs-built_in">deep</span>(.el-date-editor) {
+  <span class="hljs-attribute">width</span>: <span class="hljs-built_in">min</span>(<span class="hljs-number">100%</span>, <span class="hljs-number">420px</span>);
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></section><section class="lesson-details"><article><h2>原理</h2><p>ElDatePicker 通过 type 切换日期、月份和范围模式。daterange 模式的 v-model 保存开始与结束日期，shortcuts 提供常用周期，disabled-date 控制不可选日期，value-format 决定绑定值格式。</p></article><article><h2>处理流程</h2><ol><!--[--><li>使用 type=&quot;daterange&quot; 让用户一次选择开始和结束日期。</li><li>通过 shortcuts 配置最近 7 天、最近 30 天等常用范围。</li><li>disabled-date 禁止选择未来日期，避免产生无效报表条件。</li><li>根据选中范围计算统计天数并展示筛选摘要。</li><!--]--></ol></article><article><h2>注意事项</h2><ul><!--[--><li>value-format 会改变 v-model 的值类型，TypeScript 类型应与配置保持一致。</li><li>服务端通常需要明确时区和当天起止时间，不能只传界面显示字符串。</li><li>移动端日期范围组件较宽，应保证容器允许组件自适应。</li><!--]--></ul></article><article><h2>解决的问题</h2><p>解决&quot;报表和订单查询如何快速选择有效日期范围&quot;的问题。</p></article></section><nav class="lesson-next" aria-label="下一章节"><div class="bottom-nav-row"><a href="https://element-plus.org/" target="_blank" rel="noopener" class="official-link">Element Plus 官网 → </a><a href="/element-plus/e-14/tree" class="next-lesson-link"><span>下一颗</span><strong>🌰14 树形控件</strong></a></div></nav></main></div></div></div><div id="teleports"></div><script>window.__NUXT__={};window.__NUXT__.config={public:{},app:{baseURL:"/",buildId:"4d804e73-bb0e-4d3a-8bad-846e2808eb1d",buildAssetsDir:"/_nuxt/",cdnURL:""}}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__" data-src="/element-plus/e-13/date-picker/_payload.json?4d804e73-bb0e-4d3a-8bad-846e2808eb1d">[{"state":1,"once":3,"_errors":4,"serverRendered":6,"path":7,"pinia":8,"prerenderedAt":10},["Reactive",2],{},["Set"],["ShallowReactive",5],{},true,"\u002Felement-plus\u002Fe-13\u002Fdate-picker",["Reactive",9],{},1781362672749]</script></body></html>

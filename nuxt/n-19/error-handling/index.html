@@ -1,0 +1,127 @@
+<!DOCTYPE html><html  lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>错误处理 - 小松鼠举栗子</title><link rel="stylesheet" href="/_nuxt/entry.DGk2CtA3.css" crossorigin><link rel="preload" as="fetch" crossorigin="anonymous" href="/nuxt/n-19/error-handling/_payload.json?4d804e73-bb0e-4d3a-8bad-846e2808eb1d"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/D2KsaNuE.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/BXqIUP_V.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/RtG6o95J.js"><script type="module" src="/_nuxt/D2KsaNuE.js" crossorigin></script><link rel="prefetch" as="image" type="image/png" href="/_nuxt/squirrel-chestnut-hero.CLcwUZdR.png"><meta name="description" content="小松鼠举栗子中文前端知识案例库"><link rel="icon" type="image/svg+xml" href="/favicon.svg"></head><body><div id="__nuxt"><div class="app-frame"><header class="top-nav"><a href="/vue" class="top-brand" aria-label="回到 Vue3 学习首页"><img class="brand-avatar" src="/_nuxt/squirrel-chestnut-hero.CLcwUZdR.png" alt="小松鼠举着栗子"><div><strong>小松鼠举栗子</strong><span>gzx_miller@foxmail.com</span></div></a><nav class="knowledge-tabs" aria-label="知识类别导航"><!--[--><div class="knowledge-tab-wrapper"><a href="/vue" class="knowledge-tab" aria-disabled="false"><span>Vue3</span><!----></a><!----></div><div class="knowledge-tab-wrapper"><a href="/element-plus" class="knowledge-tab" aria-disabled="false"><span>Element Plus</span><!----></a><!----></div><div class="knowledge-tab-wrapper"><a href="/vue" class="knowledge-tab planned" aria-disabled="true"><span>TypeScript</span><small>规划中</small></a><!----></div><div class="knowledge-tab-wrapper"><a href="/react" class="knowledge-tab" aria-disabled="false"><span>React</span><!----></a><!----></div><div class="knowledge-tab-wrapper"><a href="/vue" class="knowledge-tab planned" aria-disabled="true"><span>工程化</span><small>规划中</small></a><!----></div><div class="knowledge-tab-wrapper"><a href="/langchain" class="knowledge-tab" aria-disabled="false"><span>LangChain</span><!----></a><!----></div><div class="knowledge-tab-wrapper"><a href="/nuxt" class="knowledge-tab active" aria-disabled="false"><span>Nuxt</span><!----></a><!----></div><!--]--></nav></header><div class="app-shell"><aside class="sidebar" aria-label="Nuxt 知识点导航"><div class="sidebar-heading"><button class="sidebar-toggle" aria-label="展开侧边栏"><span class="toggle-icon" aria-hidden="true"></span><!----></button></div><nav class="lesson-nav"><!--[--><a href="/nuxt/n-1/project-structure" class="lesson-link" aria-label="🌰1 项目结构" title="项目结构"><span>🌰1</span><strong>项目结构</strong></a><a href="/nuxt/n-2/file-routing" class="lesson-link" aria-label="🌰2 文件路由" title="文件路由"><span>🌰2</span><strong>文件路由</strong></a><a href="/nuxt/n-3/dynamic-route" class="lesson-link" aria-label="🌰3 动态路由" title="动态路由"><span>🌰3</span><strong>动态路由</strong></a><a href="/nuxt/n-4/layouts" class="lesson-link" aria-label="🌰4 布局系统" title="布局系统"><span>🌰4</span><strong>布局系统</strong></a><a href="/nuxt/n-5/auto-import" class="lesson-link" aria-label="🌰5 自动导入" title="自动导入"><span>🌰5</span><strong>自动导入</strong></a><a href="/nuxt/n-6/composables" class="lesson-link" aria-label="🌰6 Composables" title="Composables"><span>🌰6</span><strong>Composables</strong></a><a href="/nuxt/n-7/use-fetch" class="lesson-link" aria-label="🌰7 useFetch" title="useFetch"><span>🌰7</span><strong>useFetch</strong></a><a href="/nuxt/n-8/use-async-data" class="lesson-link" aria-label="🌰8 useAsyncData" title="useAsyncData"><span>🌰8</span><strong>useAsyncData</strong></a><a href="/nuxt/n-9/ssr" class="lesson-link" aria-label="🌰9 SSR 原理" title="SSR 原理"><span>🌰9</span><strong>SSR 原理</strong></a><a href="/nuxt/n-10/client-only" class="lesson-link" aria-label="🌰10 ClientOnly" title="ClientOnly"><span>🌰10</span><strong>ClientOnly</strong></a><a href="/nuxt/n-11/middleware" class="lesson-link" aria-label="🌰11 中间件" title="中间件"><span>🌰11</span><strong>中间件</strong></a><a href="/nuxt/n-12/plugins" class="lesson-link" aria-label="🌰12 插件" title="插件"><span>🌰12</span><strong>插件</strong></a><a href="/nuxt/n-13/use-state" class="lesson-link" aria-label="🌰13 useState" title="useState"><span>🌰13</span><strong>useState</strong></a><a href="/nuxt/n-14/seo" class="lesson-link" aria-label="🌰14 SEO" title="SEO"><span>🌰14</span><strong>SEO</strong></a><a href="/nuxt/n-15/nitro" class="lesson-link" aria-label="🌰15 Nitro" title="Nitro"><span>🌰15</span><strong>Nitro</strong></a><a href="/nuxt/n-16/api-routes" class="lesson-link" aria-label="🌰16 API 路由" title="API 路由"><span>🌰16</span><strong>API 路由</strong></a><a href="/nuxt/n-17/ssg" class="lesson-link" aria-label="🌰17 SSG/ISR" title="SSG/ISR"><span>🌰17</span><strong>SSG/ISR</strong></a><a href="/nuxt/n-18/runtime-config" class="lesson-link" aria-label="🌰18 运行时配置" title="运行时配置"><span>🌰18</span><strong>运行时配置</strong></a><a aria-current="page" href="/nuxt/n-19/error-handling" class="router-link-active router-link-exact-active lesson-link active" aria-label="🌰19 错误处理" title="错误处理"><span>🌰19</span><strong>错误处理</strong></a><a href="/nuxt/n-20/modules" class="lesson-link" aria-label="🌰20 模块生态" title="模块生态"><span>🌰20</span><strong>模块生态</strong></a><!--]--></nav></aside><main class="lesson-page"><header class="lesson-header"><div class="lesson-copy"><p class="eyebrow">🌰19 · 工程实践</p><h1>错误处理</h1><p>掌握 error.vue 自定义错误页面、错误钩子、API 错误处理和 createError/clearError。</p></div></header><section class="lesson-section"><h2>案例演示</h2><!--[--><div class="demo-card">案例交互加载中...</div><!--]--></section><section class="lesson-section"><h2>关键代码</h2><pre class="code-block"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">setup</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ts&quot;</span>&gt;</span><span class="language-xml">
+import { ref } from &#x27;vue&#x27;
+
+const activeSection = ref&lt;&#x27;error-page&#x27; | &#x27;on-error&#x27; | &#x27;api-error&#x27;&gt;(&#x27;error-page&#x27;)
+
+const errorPageCode = `<span class="hljs-comment">&lt;!-- error.vue（项目根目录或 src/ 下） --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">setup</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;ts&quot;</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">const</span> props = defineProps&lt;{
+  <span class="hljs-attr">error</span>: {
+    <span class="hljs-attr">url</span>: string
+    <span class="hljs-attr">statusCode</span>: number
+    <span class="hljs-attr">statusMessage</span>: string
+    <span class="hljs-attr">message</span>: string
+  }
+}&gt;()
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">handleError</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-title function_">clearError</span>({ <span class="hljs-attr">redirect</span>: <span class="hljs-string">&#x27;/&#x27;</span> })
+&lt;\/script&gt;
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;error-page&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ error.statusCode }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{ error.statusMessage || &#x27;出错了&#x27; }}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;handleError&quot;</span>&gt;</span>返回首页<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><span class="hljs-string">`
+
+const onErrorCode = `</span><span class="hljs-comment">// plugins/error-handler.ts</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineNuxtPlugin</span>(<span class="hljs-function">(<span class="hljs-params">nuxtApp</span>) =&gt;</span> {
+  nuxtApp.<span class="hljs-title function_">hook</span>(<span class="hljs-string">&#x27;vue:error&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">error, instance, info</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;Vue 错误：&#x27;</span>, error)
+    <span class="hljs-comment">// 上报错误到监控服务</span>
+  })
+  
+  nuxtApp.<span class="hljs-title function_">hook</span>(<span class="hljs-string">&#x27;app:error&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;应用错误：&#x27;</span>, error)
+  })
+})
+
+<span class="hljs-comment">// server/api/ 中抛出错误</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineEventHandler</span>(<span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">throw</span> <span class="hljs-title function_">createError</span>({
+    <span class="hljs-attr">statusCode</span>: <span class="hljs-number">404</span>,
+    <span class="hljs-attr">statusMessage</span>: <span class="hljs-string">&#x27;资源不存在&#x27;</span>,
+  })
+})<span class="hljs-string">`
+
+const apiErrorCode = `</span><span class="hljs-comment">// useFetch 错误处理</span>
+<span class="hljs-keyword">const</span> { data, error, pending } = <span class="hljs-keyword">await</span> <span class="hljs-title function_">useFetch</span>(<span class="hljs-string">&#x27;/api/users&#x27;</span>)
+
+<span class="hljs-comment">// 模板中</span>
+<span class="hljs-comment">// &lt;div v-if=&quot;error&quot;&gt;{{ error.message }}&lt;/div&gt;</span>
+<span class="hljs-comment">// &lt;div v-else-if=&quot;pending&quot;&gt;加载中…&lt;/div&gt;</span>
+<span class="hljs-comment">// &lt;div v-else&gt;{{ data }}&lt;/div&gt;</span>
+
+<span class="hljs-comment">// 手动抛出错误</span>
+<span class="hljs-keyword">try</span> {
+  <span class="hljs-keyword">await</span> $fetch(<span class="hljs-string">&#x27;/api/submit&#x27;</span>, { <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-attr">body</span>: formData })
+} <span class="hljs-keyword">catch</span> (err) {
+  <span class="hljs-comment">// 处理请求错误</span>
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(err)
+}
+
+<span class="hljs-comment">// showLoadingError 自动处理</span>
+<span class="hljs-keyword">const</span> { data, error } = <span class="hljs-keyword">await</span> <span class="hljs-title function_">useFetch</span>(<span class="hljs-string">&#x27;/api/data&#x27;</span>, {
+  <span class="hljs-title function_">onRequestError</span>(<span class="hljs-params">{ error }</span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;请求错误：&#x27;</span>, error)
+  },
+  <span class="hljs-title function_">onResponseError</span>(<span class="hljs-params">{ response }</span>) {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&#x27;响应错误：&#x27;</span>, response.<span class="hljs-property">status</span>)
+  },
+})<span class="hljs-string">`
+
+const errorTypes = [
+  { type: &#x27;404&#x27;, desc: &#x27;页面不存在&#x27;, handler: &#x27;error.vue + 中间件&#x27; },
+  { type: &#x27;500&#x27;, desc: &#x27;服务端渲染错误&#x27;, handler: &#x27;error.vue + app:error hook&#x27; },
+  { type: &#x27;API Error&#x27;, desc: &#x27;接口请求错误&#x27;, handler: &#x27;useFetch error + $fetch try/catch&#x27; },
+  { type: &#x27;Hydration Mismatch&#x27;, desc: &#x27;SSR/CSR 不一致&#x27;, handler: &#x27;修复不一致或用 ClientOnly&#x27; },
+  { type: &#x27;Vue Runtime Error&#x27;, desc: &#x27;组件运行时错误&#x27;, handler: &#x27;vue:error hook + ErrorBoundary&#x27; },
+]
+</span></span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;demo-card&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>错误处理<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:flex;gap:8px;margin-bottom:12px;&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;{ active: activeSection === &#x27;error-page&#x27; }&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;activeSection=&#x27;error-page&#x27;&quot;</span>&gt;</span>错误页面<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;{ active: activeSection === &#x27;on-error&#x27; }&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;activeSection=&#x27;on-error&#x27;&quot;</span>&gt;</span>错误钩子<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;{ active: activeSection === &#x27;api-error&#x27; }&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;activeSection=&#x27;api-error&#x27;&quot;</span>&gt;</span>API 错误<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:flex;gap:16px;&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;flex:1;&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;code-block&quot;</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;activeSection === &#x27;error-page&#x27;&quot;</span>&gt;</span>{{ errorPageCode }}<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;code-block&quot;</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;activeSection === &#x27;on-error&#x27;&quot;</span>&gt;</span>{{ onErrorCode }}<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;code-block&quot;</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;activeSection === &#x27;api-error&#x27;&quot;</span>&gt;</span>{{ apiErrorCode }}<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;flex:1;&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>错误类型速查<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:100%;&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>类型<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>说明<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>处理方式<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in errorTypes&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;item.type&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>{{ item.type }}<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{ item.desc }}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{ item.handler }}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;margin-top:10px;padding:10px;background:#fff8f0;border-radius:6px;font-size:13px;&quot;</span>&gt;</span>
+          💡 <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>clearError()<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span> 可清除错误状态并导航；<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>createError()<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span> 可主动触发错误。SSR 中的错误会通过 payload 传递到客户端。
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="language-css">
+<span class="hljs-selector-class">.active</span> { <span class="hljs-attribute">background</span>: <span class="hljs-number">#e85d04</span>; <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>; }
+<span class="hljs-selector-class">.code-block</span> { <span class="hljs-attribute">background</span>: <span class="hljs-number">#f5f0eb</span>; <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>; <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">6px</span>; <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>; <span class="hljs-attribute">white-space</span>: pre-wrap; }
+<span class="hljs-selector-tag">table</span> { <span class="hljs-attribute">border-collapse</span>: collapse; }
+<span class="hljs-selector-tag">th</span>, <span class="hljs-selector-tag">td</span> { <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">8px</span>; <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#ddd</span>; <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>; }
+<span class="hljs-selector-tag">th</span> { <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff3e0</span>; }
+<span class="hljs-selector-tag">code</span> { <span class="hljs-attribute">background</span>: <span class="hljs-number">#f5f0eb</span>; <span class="hljs-attribute">padding</span>: <span class="hljs-number">1px</span> <span class="hljs-number">4px</span>; <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">3px</span>; <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>; }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></section><section class="lesson-details"><article><h2>原理</h2><p>Nuxt 错误处理分为三层：error.vue 自定义错误页面（接收 statusCode 和 message）、vue:error 和 app:error 钩子捕获运行时错误、useFetch 的 error 和 $fetch 的 try/catch 处理 API 错误。createError 主动触发错误，clearError 清除错误状态并导航。SSR 中的错误通过 payload 传递到客户端。</p></article><article><h2>处理流程</h2><ol><!--[--><li>404/500 等路由级错误由 error.vue 渲染，展示友好的错误界面。</li><li>Vue 组件运行时错误由 vue:error hook 捕获，可上报监控服务。</li><li>API 请求错误通过 useFetch 的 error 属性或 $fetch 的 catch 处理。</li><!--]--></ol></article><article><h2>注意事项</h2><ul><!--[--><li>error.vue 不是普通页面组件，不能使用布局和插件提供的功能。</li><li>clearError({ redirect: &quot;/&quot; }) 清除错误并导航，不传参则留在当前页。</li><li>生产环境应接入错误监控服务（Sentry 等），不要只依赖控制台日志。</li><!--]--></ul></article><article><h2>解决的问题</h2><p>解决&quot;Nuxt 各类错误如何捕获和展示、如何自定义错误页面&quot;的问题。</p></article></section><nav class="lesson-next" aria-label="下一章节"><div class="bottom-nav-row"><a href="https://nuxt.com/" target="_blank" rel="noopener" class="official-link">Nuxt 官网 → </a><a href="/nuxt/n-20/modules" class="next-lesson-link"><span>下一颗</span><strong>🌰20 模块生态</strong></a></div></nav></main></div></div></div><div id="teleports"></div><script>window.__NUXT__={};window.__NUXT__.config={public:{},app:{baseURL:"/",buildId:"4d804e73-bb0e-4d3a-8bad-846e2808eb1d",buildAssetsDir:"/_nuxt/",cdnURL:""}}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__" data-src="/nuxt/n-19/error-handling/_payload.json?4d804e73-bb0e-4d3a-8bad-846e2808eb1d">[{"state":1,"once":3,"_errors":4,"serverRendered":6,"path":7,"pinia":8,"prerenderedAt":10},["Reactive",2],{},["Set"],["ShallowReactive",5],{},true,"\u002Fnuxt\u002Fn-19\u002Ferror-handling",["Reactive",9],{},1781362673336]</script></body></html>
