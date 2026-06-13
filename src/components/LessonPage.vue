@@ -28,6 +28,14 @@ const categoryDetails: Record<string, { intro: string; officialUrl: string }> = 
     intro: 'LangChain.js 是构建 LLM 应用的开源框架，提供模型调用、提示模板、链式调用、RAG 检索增强生成等核心能力，帮助开发者快速搭建智能应用。',
     officialUrl: 'https://js.langchain.com/',
   },
+  'element-plus': {
+    intro: 'Element Plus 是基于 Vue 3 的组件库，提供丰富的表单、表格、弹窗等企业级组件，帮助快速搭建中后台界面。',
+    officialUrl: 'https://element-plus.org/',
+  },
+  nuxt: {
+    intro: 'Nuxt 是基于 Vue 3 的全栈框架，内置文件路由、自动导入、SSR/SSG、服务端 API 等能力，让 Vue 项目从单页应用升级为全栈应用。',
+    officialUrl: 'https://nuxt.com/',
+  },
 }
 
 const isCategoryDrawerOpen = ref(true)
@@ -105,6 +113,9 @@ function formatLessonId(id: string) {
   }
   if (id.startsWith('R_')) {
     return id.replace('R_', '🌰')
+  }
+  if (id.startsWith('N_')) {
+    return id.replace('N_', '🌰')
   }
   return id.replace('K_', '🌰')
 }
